@@ -67,8 +67,8 @@ section{border-top:1px solid var(--line);position:relative}
 .pad{padding:clamp(60px,8vw,112px) clamp(20px,5vw,68px)}
 
 /* reveal: headings sharpen into focus (visible at rest without JS) */
-.rv{transition:filter 1s ease,opacity 1s ease,transform 1s cubic-bezier(.2,.8,.2,1)}
-.rv.armed{filter:blur(12px);opacity:.2;transform:translateY(10px)}
+.rv{transition:opacity .4s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.rv.armed{opacity:0;transform:translateY(12px)}
 
 /* ---------- Nav ---------- */
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:color-mix(in srgb,var(--frame) 86%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
@@ -1051,8 +1051,8 @@ html.has-cur .cur{opacity:1}
 @media (max-width:640px){.hai-ill{aspect-ratio:1180/560}.hai-pin i::after{height:24px}.hai-pin span{margin-top:30px;font-size:11.5px}.foot-ascii{opacity:.45}}
 
 /* ---------- scroll reveal ---------- */
-.sr{opacity:0;transform:translate3d(0,56px,0) scale(.96);filter:blur(6px);transition:opacity 1s cubic-bezier(.2,.8,.2,1) var(--sd,0s),transform 1.2s cubic-bezier(.16,1,.3,1) var(--sd,0s),filter 1s ease var(--sd,0s)}
-.sr.in{opacity:1;transform:none;filter:blur(0)}
+.sr{opacity:0;transform:translate3d(0,18px,0);transition:opacity .4s ease var(--sd,0s),transform .45s cubic-bezier(.2,.8,.2,1) var(--sd,0s)}
+.sr.in{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.sr{opacity:1;transform:none;filter:none;transition:none}}
 
 /* working stack popovers */
@@ -1128,26 +1128,26 @@ html.has-cur .cur{opacity:1}
 <header class="nav" id="nav">
   <div class="nav-in">
     <nav class="nav-l" aria-label="Main">
+      <a class="brk" href="#work">Portfolio</a>
       <a class="brk" href="#about">About</a>
       <a class="brk" href="#path">Path</a>
-      <a class="brk" href="#vision">Research &amp; Vision</a>
     </nav>
     <a class="logo" href="#top" aria-label="Home">
       <svg viewBox="0 0 26 26" aria-hidden="true" class="brandm"><rect x="0.77" y="2.33" width="2.75" height="2.75" fill="currentColor"/><rect x="3.88" y="2.33" width="2.75" height="2.75" fill="currentColor"/><rect class="b" style="--i:6" x="19.57" y="2.52" width="2.36" height="2.36" fill="var(--accent)"/><rect class="b" style="--i:7" x="22.67" y="2.52" width="2.36" height="2.36" fill="var(--accent)"/><rect x="0.77" y="5.42" width="2.75" height="2.75" fill="currentColor"/><rect x="3.88" y="5.42" width="2.75" height="2.75" fill="currentColor"/><rect x="6.97" y="5.42" width="2.75" height="2.75" fill="currentColor"/><rect class="b" style="--i:6" x="16.47" y="5.62" width="2.36" height="2.36" fill="var(--accent)"/><rect class="b" style="--i:7" x="19.57" y="5.62" width="2.36" height="2.36" fill="var(--accent)"/><rect class="b" style="--i:8" x="22.67" y="5.62" width="2.36" height="2.36" fill="var(--accent)"/><rect x="0.77" y="8.53" width="2.75" height="2.75" fill="currentColor"/><rect x="3.88" y="8.53" width="2.75" height="2.75" fill="currentColor"/><rect x="10.08" y="8.53" width="2.75" height="2.75" fill="currentColor"/><rect class="b" style="--i:6" x="13.37" y="8.72" width="2.36" height="2.36" fill="var(--accent)"/><rect class="b" style="--i:8" x="19.57" y="8.72" width="2.36" height="2.36" fill="var(--accent)"/><rect class="b" style="--i:9" x="22.67" y="8.72" width="2.36" height="2.36" fill="var(--accent)"/><rect x="0.77" y="11.63" width="2.75" height="2.75" fill="currentColor"/><rect x="3.88" y="11.63" width="2.75" height="2.75" fill="currentColor"/><rect class="b" style="--i:9" x="19.57" y="11.82" width="2.36" height="2.36" fill="var(--accent)"/><rect class="b" style="--i:10" x="22.67" y="11.82" width="2.36" height="2.36" fill="var(--accent)"/><rect x="0.77" y="14.73" width="2.75" height="2.75" fill="currentColor"/><rect x="3.88" y="14.73" width="2.75" height="2.75" fill="currentColor"/><rect class="b" style="--i:10" x="19.57" y="14.92" width="2.36" height="2.36" fill="var(--accent)"/><rect class="b" style="--i:11" x="22.67" y="14.92" width="2.36" height="2.36" fill="var(--accent)"/><rect x="0.77" y="17.82" width="2.75" height="2.75" fill="currentColor"/><rect x="3.88" y="17.82" width="2.75" height="2.75" fill="currentColor"/><rect class="b" style="--i:11" x="19.57" y="18.02" width="2.36" height="2.36" fill="var(--accent)"/><rect class="b" style="--i:12" x="22.67" y="18.02" width="2.36" height="2.36" fill="var(--accent)"/><rect x="0.77" y="20.93" width="2.75" height="2.75" fill="currentColor"/><rect x="3.88" y="20.93" width="2.75" height="2.75" fill="currentColor"/><rect class="b" style="--i:12" x="19.57" y="21.12" width="2.36" height="2.36" fill="var(--accent)"/><rect class="b" style="--i:13" x="22.67" y="21.12" width="2.36" height="2.36" fill="var(--accent)"/></svg>
     </a>
     <nav class="nav-r" aria-label="More">
-      <a class="brk" href="#work">Portfolio</a>
+      <a class="brk" href="#vision">Research &amp; Vision</a>
       <a class="brk" href="#contact">Contact</a>
       <div class="ghd"><a class="brk gh" href="https://github.com/murtuzabuilds" target="_blank" rel="noopener" aria-haspopup="true">GitHub<span aria-hidden="true">↗</span></a><div class="ghd-p" role="menu"><div class="ghd-h">Open source builds</div><a href="https://github.com/murtuzabuilds/umbra" target="_blank" rel="noopener" style="--rc:#F5E6C8"><i></i><b>umbra</b><span>Finds unapproved AI use, stops sensitive data leaking, sets limits for agents, and maps where teams need AI.</span></a><a href="https://github.com/murtuzabuilds/cardright" target="_blank" rel="noopener" style="--rc:#E8B04B"><i></i><b>cardright</b><span>Which card to tap: a payments optimizer that counts what your cards cost, not just what they pay.</span></a><a href="https://github.com/murtuzabuilds/conatus" target="_blank" rel="noopener" style="--rc:#F44E14"><i></i><b>conatus</b><span>An AI growth companion: intention to a dated plan, daily check-ins, five pillars and a coach.</span></a><a href="https://github.com/murtuzabuilds/nova" target="_blank" rel="noopener" style="--rc:#4F8BFF"><i></i><b>nova</b><span>A voice assistant with visible memory, tool calling and a live decision trace.</span></a><a href="https://github.com/murtuzabuilds/prd-to-jira" target="_blank" rel="noopener" style="--rc:#2684FF"><i></i><b>prd-to-jira</b><span>A PRD in, Jira epics and stories out. Parser, linter, CLI and an n8n workflow.</span></a><a href="https://github.com/murtuzabuilds/apply-engine" target="_blank" rel="noopener" style="--rc:#61DAFB"><i></i><b>apply-engine</b><span>Ranks roles by ATS match, track fit and city, then tailors your resume honestly.</span></a><a href="https://github.com/murtuzabuilds/handoff" target="_blank" rel="noopener" style="--rc:#3455FA"><i></i><b>handoff</b><span>A human-in-the-loop LLM agent that asks before acting and learns what it can do alone.</span></a><a href="https://github.com/murtuzabuilds/pmkit" target="_blank" rel="noopener" style="--rc:#FFB21E"><i></i><b>pmkit</b><span>RICE that flags close calls, a PRD linter and win/loss dashboards.</span></a><a href="https://github.com/murtuzabuilds/athlevo" target="_blank" rel="noopener" style="--rc:#AFB0FF"><i></i><b>athlevo</b><span>Book verified coaches and venues around your schedule. The Figma case study, in code.</span></a><a href="https://github.com/murtuzabuilds/zentra" target="_blank" rel="noopener" style="--rc:#CEA8FB"><i></i><b>zentra</b><span>A focus buddy with streaks, XP and real distraction detection.</span></a><a href="https://github.com/murtuzabuilds/finpath" target="_blank" rel="noopener" style="--rc:#D7FF67"><i></i><b>finpath</b><span>A finance dashboard whose AI assistant runs real analysis on your spending.</span></a><a class="ghd-all" href="https://github.com/murtuzabuilds" target="_blank" rel="noopener">github.com/murtuzabuilds ↗</a></div></div>
     </nav>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
   </div>
-  <div class="drawer" id="drawer"><a href="#about">About</a><a href="#path">Path</a><a href="#vision">Research &amp; Vision</a><a href="#work">Portfolio</a><a href="#contact">Contact</a><details class="ghm"><summary>GitHub</summary><a href="https://github.com/murtuzabuilds/umbra" target="_blank" rel="noopener">umbra</a><a href="https://github.com/murtuzabuilds/cardright" target="_blank" rel="noopener">cardright</a><a href="https://github.com/murtuzabuilds/conatus" target="_blank" rel="noopener">conatus</a><a href="https://github.com/murtuzabuilds/nova" target="_blank" rel="noopener">nova</a><a href="https://github.com/murtuzabuilds/prd-to-jira" target="_blank" rel="noopener">prd-to-jira</a><a href="https://github.com/murtuzabuilds/apply-engine" target="_blank" rel="noopener">apply-engine</a><a href="https://github.com/murtuzabuilds/handoff" target="_blank" rel="noopener">handoff</a><a href="https://github.com/murtuzabuilds/pmkit" target="_blank" rel="noopener">pmkit</a><a href="https://github.com/murtuzabuilds/athlevo" target="_blank" rel="noopener">athlevo</a><a href="https://github.com/murtuzabuilds/zentra" target="_blank" rel="noopener">zentra</a><a href="https://github.com/murtuzabuilds/finpath" target="_blank" rel="noopener">finpath</a><a href="https://github.com/murtuzabuilds" target="_blank" rel="noopener">All repos ↗</a></details></div>
+  <div class="drawer" id="drawer"><a href="#work">Portfolio</a><a href="#about">About</a><a href="#path">Path</a><a href="#vision">Research &amp; Vision</a><a href="#contact">Contact</a><details class="ghm"><summary>GitHub</summary><a href="https://github.com/murtuzabuilds/umbra" target="_blank" rel="noopener">umbra</a><a href="https://github.com/murtuzabuilds/cardright" target="_blank" rel="noopener">cardright</a><a href="https://github.com/murtuzabuilds/conatus" target="_blank" rel="noopener">conatus</a><a href="https://github.com/murtuzabuilds/nova" target="_blank" rel="noopener">nova</a><a href="https://github.com/murtuzabuilds/prd-to-jira" target="_blank" rel="noopener">prd-to-jira</a><a href="https://github.com/murtuzabuilds/apply-engine" target="_blank" rel="noopener">apply-engine</a><a href="https://github.com/murtuzabuilds/handoff" target="_blank" rel="noopener">handoff</a><a href="https://github.com/murtuzabuilds/pmkit" target="_blank" rel="noopener">pmkit</a><a href="https://github.com/murtuzabuilds/athlevo" target="_blank" rel="noopener">athlevo</a><a href="https://github.com/murtuzabuilds/zentra" target="_blank" rel="noopener">zentra</a><a href="https://github.com/murtuzabuilds/finpath" target="_blank" rel="noopener">finpath</a><a href="https://github.com/murtuzabuilds" target="_blank" rel="noopener">All repos ↗</a></details></div>
   <div class="progress" id="progress"></div>
 </header>
 
 <section class="hero pad" id="top">
-  <div class="eyebrow"><i></i>AI Product Manager Intern · MBA '27, UW-Madison</div>
+  <div class="eyebrow"><i></i>AI Product Manager · MBA '27, UW-Madison</div>
   <h1>From interfaces<br>to <em class="scr" id="scr">intelligence.</em></h1>
   <p class="sub">I'm Murtuza, a product manager with roots in digital experience and transformation. I build products from the data layer up. At Lighthouse AI, I'm building the API pipeline that turns regulatory data into intelligence enterprises can act on. Before that, I spent nearly five years at Deloitte shaping digital product strategy and experience for enterprise clients.</p>
   <div class="ctas">
@@ -1190,6 +1190,66 @@ html.has-cur .cur{opacity:1}
   <div class="stat"><b data-from="74" data-to="83" data-arrow="1">74</b><span>usability score lift ahead of a GTM launch</span><em>Deloitte</em></div>
   <div class="stat"><b data-to="2700" data-suf="+">0</b><span>user workflows automated with LLMs</span><em>Deloitte</em></div>
 </div>
+
+<section class="pad work-head" id="work">
+  <div class="head">
+    <span class="tag"><b></b><b></b><b></b><b></b>Portfolio</span>
+    <h2 class="rv">Selected Work.</h2>
+    <p>Products I have shaped, designed and built, from enterprise platforms to consumer apps, most of them AI-enabled. Each one starts with a user problem and ends with a working product. Open any of them for the thinking behind it.</p>
+  </div>
+</section>
+
+<section class="umbra" id="umbra" aria-label="Flagship product: Umbra">
+  <canvas id="umCanvas" aria-hidden="true"></canvas>
+  <div class="um-in">
+    <div class="um-top">
+      <div class="um-copy">
+      <div class="um-k">Featured project</div>
+      <h2>Umbra.<br><em>Using AI to govern AI.</em></h2>
+      <p class="um-lede">A product I designed and built from scratch. Umbra shows a company every AI tool and agent its people use, <b>catches sensitive data before it goes out</b>, and turns the unapproved tools it finds into <b>a plan for where to invest in AI next</b>. AI helps draft the rules, but fixed rules and people make the decisions.</p>
+      <div class="um-btns"><a class="p" href="https://murtuzabuilds.github.io/umbra/" target="_blank" rel="noopener">Try the live console ↗</a><a href="https://murtuzabuilds.github.io/umbra/case-study.html" target="_blank" rel="noopener">Read the case study ↗</a><a href="https://github.com/murtuzabuilds/umbra" target="_blank" rel="noopener">Code ↗</a></div>
+      </div>
+      <div class="um-sun" aria-hidden="true"></div>
+    </div>
+      <div class="um-float"><div class="um-app" id="umApp">
+        <div class="um-bar"><span class="um-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <div class="um-tabs" role="tablist" aria-label="Umbra console views"><button type="button" role="tab" class="on" aria-selected="true" data-i="0">Overview</button><button type="button" role="tab" aria-selected="false" data-i="1">AI Map</button><button type="button" role="tab" aria-selected="false" data-i="2">Demand Map</button></div>
+          <span class="um-live"><i></i>Live</span></div>
+        <a class="um-view" href="https://murtuzabuilds.github.io/umbra/" target="_blank" rel="noopener" aria-label="Open the Umbra console">
+          <img class="on" src="media/umbra/totality.webp" alt="Umbra console: overview with the AI constellation and the weekly brief" loading="lazy">
+          <img src="media/umbra/constellation.webp" alt="Umbra console: every AI service on one map, with the data sources that found them" loading="lazy">
+          <img src="media/umbra/demand.webp" alt="Umbra console: the Demand Map ranking where approved AI would help most" loading="lazy">
+          <span class="um-open">Open the live console <b>↗</b></span>
+        </a>
+        <div class="um-prog" aria-hidden="true"><i id="umProg"></i></div>
+      </div></div>
+    <div class="um-foot">
+      <div class="um-stats">
+        <div><b>22 → 0</b><span>sensitive data reaching outside vendors, after one rule change</span></div>
+        <div><b>888 → 62</b><span>raw alerts grouped into cases a person can act on</span></div>
+        <div><b>1,411</b><span>AI interactions governed across 15 services</span></div>
+        <div><b>Level 3 → 4</b><span>on a five-level AI governance scale</span></div>
+      </div>
+      <div class="um-pillars">
+        <div><b>Demand Map</b>Shows where teams need approved AI, based on what they already use.</div>
+        <div><b>Corona</b>An AI helper that drafts rules from plain English. A person approves them.</div>
+        <div><b>Agent limits</b>Every AI agent gets a named owner and a clear list of what it can do.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="portfolio">
+  <div class="feature" id="featured"></div>
+  <div class="filters" id="filters" role="tablist" aria-label="Filter projects"></div>
+  <div class="pgrid" id="pgrid"></div>
+  <div class="lab-head">
+    <div><h3 class="rv">Design and Prototype Lab <em>the interface layer of AI products.</em></h3><p>Voice AI, fintech intelligence, behavioral products and an AI brand system, each taken from research to a working prototype. Drag, scroll, or hover to preview.</p></div>
+    <div class="lab-ctrl"><span>DRAG</span><button type="button" id="labPrev" aria-label="Previous">&larr;</button><button type="button" id="labNext" aria-label="Next">&rarr;</button></div>
+  </div>
+  <div class="lab" id="lab"></div>
+  <div class="lab-bar"><i id="labProg"></i></div>
+</section>
 
 <section class="pad" id="about">
   <div class="head hai-head">
@@ -1338,66 +1398,6 @@ html.has-cur .cur{opacity:1}
   </div>
 </section>
 
-<section class="pad work-head" id="work">
-  <div class="head">
-    <span class="tag"><b></b><b></b><b></b><b></b>Portfolio</span>
-    <h2 class="rv">Selected Work.</h2>
-    <p>Products I have shaped, designed and built, from enterprise platforms to consumer apps, most of them AI-enabled. Each one starts with a user problem and ends with a working product. Open any of them for the thinking behind it.</p>
-  </div>
-</section>
-
-<section class="umbra" id="umbra" aria-label="Flagship product: Umbra">
-  <canvas id="umCanvas" aria-hidden="true"></canvas>
-  <div class="um-in">
-    <div class="um-top">
-      <div class="um-copy">
-      <div class="um-k">Featured project</div>
-      <h2>Umbra.<br><em>Using AI to govern AI.</em></h2>
-      <p class="um-lede">A product I designed and built from scratch. Umbra shows a company every AI tool and agent its people use, <b>catches sensitive data before it goes out</b>, and turns the unapproved tools it finds into <b>a plan for where to invest in AI next</b>. AI helps draft the rules, but fixed rules and people make the decisions.</p>
-      <div class="um-btns"><a class="p" href="https://murtuzabuilds.github.io/umbra/" target="_blank" rel="noopener">Try the live console ↗</a><a href="https://murtuzabuilds.github.io/umbra/case-study.html" target="_blank" rel="noopener">Read the case study ↗</a><a href="https://github.com/murtuzabuilds/umbra" target="_blank" rel="noopener">Code ↗</a></div>
-      </div>
-      <div class="um-sun" aria-hidden="true"></div>
-    </div>
-      <div class="um-float"><div class="um-app" id="umApp">
-        <div class="um-bar"><span class="um-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <div class="um-tabs" role="tablist" aria-label="Umbra console views"><button type="button" role="tab" class="on" aria-selected="true" data-i="0">Overview</button><button type="button" role="tab" aria-selected="false" data-i="1">AI Map</button><button type="button" role="tab" aria-selected="false" data-i="2">Demand Map</button></div>
-          <span class="um-live"><i></i>Live</span></div>
-        <a class="um-view" href="https://murtuzabuilds.github.io/umbra/" target="_blank" rel="noopener" aria-label="Open the Umbra console">
-          <img class="on" src="media/umbra/totality.webp" alt="Umbra console: overview with the AI constellation and the weekly brief" loading="lazy">
-          <img src="media/umbra/constellation.webp" alt="Umbra console: every AI service on one map, with the data sources that found them" loading="lazy">
-          <img src="media/umbra/demand.webp" alt="Umbra console: the Demand Map ranking where approved AI would help most" loading="lazy">
-          <span class="um-open">Open the live console <b>↗</b></span>
-        </a>
-        <div class="um-prog" aria-hidden="true"><i id="umProg"></i></div>
-      </div></div>
-    <div class="um-foot">
-      <div class="um-stats">
-        <div><b>22 → 0</b><span>sensitive data reaching outside vendors, after one rule change</span></div>
-        <div><b>888 → 62</b><span>raw alerts grouped into cases a person can act on</span></div>
-        <div><b>1,411</b><span>AI interactions governed across 15 services</span></div>
-        <div><b>Level 3 → 4</b><span>on a five-level AI governance scale</span></div>
-      </div>
-      <div class="um-pillars">
-        <div><b>Demand Map</b>Shows where teams need approved AI, based on what they already use.</div>
-        <div><b>Corona</b>An AI helper that drafts rules from plain English. A person approves them.</div>
-        <div><b>Agent limits</b>Every AI agent gets a named owner and a clear list of what it can do.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="pad" id="portfolio">
-  <div class="feature" id="featured"></div>
-  <div class="filters" id="filters" role="tablist" aria-label="Filter projects"></div>
-  <div class="pgrid" id="pgrid"></div>
-  <div class="lab-head">
-    <div><h3 class="rv">Design and Prototype Lab <em>the interface layer of AI products.</em></h3><p>Voice AI, fintech intelligence, behavioral products and an AI brand system, each taken from research to a working prototype. Drag, scroll, or hover to preview.</p></div>
-    <div class="lab-ctrl"><span>DRAG</span><button type="button" id="labPrev" aria-label="Previous">&larr;</button><button type="button" id="labNext" aria-label="Next">&rarr;</button></div>
-  </div>
-  <div class="lab" id="lab"></div>
-  <div class="lab-bar"><i id="labProg"></i></div>
-</section>
-
 <section class="pad">
   <div class="faq">
     <div class="intro">
@@ -1441,7 +1441,7 @@ html.has-cur .cur{opacity:1}
       <div class="cp">&copy; 2026 · Designed and built by Murtuza</div>
     </div>
     <div class="links">
-      <div><h4>Pages</h4><a href="#top">Home</a><a href="#about">About</a><a href="#path">Path</a><a href="#work">Portfolio</a><a href="#contact">Contact</a></div>
+      <div><h4>Pages</h4><a href="#top">Home</a><a href="#work">Portfolio</a><a href="#about">About</a><a href="#path">Path</a><a href="#contact">Contact</a></div>
       <div><h4>Elsewhere</h4><a class="soc" href="https://linkedin.com/in/momurtuza" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a><a class="soc" href="https://github.com/murtuzabuilds" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.1c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.7.82.57A12 12 0 0 0 12 .3"/></svg>GitHub</a><a class="soc" href="mailto:murtuzabuilds@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M24 5.46v13.91c0 .9-.73 1.63-1.64 1.63h-3.82V11.73L12 16.64l-6.55-4.91V21H1.64C.73 21 0 20.27 0 19.37V5.46c0-2.02 2.3-3.18 3.93-1.96L5.45 4.64 12 9.55l6.55-4.91 1.52-1.14C21.69 2.28 24 3.44 24 5.46z"/></svg>murtuzabuilds@gmail.com</a></div>
     </div>
   </div>
@@ -1498,7 +1498,7 @@ const tr=$('track'); tr.innerHTML+=tr.innerHTML;
 
 /* ---------- heading reveal ---------- */
 if(!reduce&&'IntersectionObserver' in window){
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('armed');io.unobserve(e.target);}}),{threshold:.35});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('armed');io.unobserve(e.target);}}),{threshold:.05,rootMargin:'0px 0px 6% 0px'});
   document.querySelectorAll('.rv').forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add('armed');io.observe(el);}});
 }
 
@@ -2552,7 +2552,7 @@ if(matchMedia('(pointer:fine)').matches && !reduce){
 }
 function decode(el){ if(reduce||el.children.length||el.dataset.dec) return; el.dataset.dec=1; const txt=el.textContent, G='01<>/{}#*+=~ABCDEFXZ'; let f=0; const tot=txt.length+14;
   const tick=()=>{ f++; el.textContent=[...txt].map((ch,i)=>ch===' '||f>i+12?ch:G[(Math.random()*G.length)|0]).join(''); if(f<tot) requestAnimationFrame(tick); else el.textContent=txt; }; tick(); }
-if(!reduce&&'IntersectionObserver' in window){ const dio=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ decode(e.target); dio.unobserve(e.target);} }),{threshold:.6}); document.querySelectorAll('.head h2,.lab-head h3').forEach(h=>{ if(h.getBoundingClientRect().top>innerHeight) dio.observe(h); }); }
+
 
 /* ---------- Ask my portfolio: grounded retrieval with confidence and sources ---------- */
 const KB=[
@@ -2750,10 +2750,10 @@ if(still) requestAnimationFrame(f);
 (function(){ if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)) return;
   const SEL='.head p,.stat,.cap,.pcard,.repo,.tj,.lab-mod,.chip,.um-k,.umbra h2,.um-lede,.um-stats>div,.um-btns,.um-app,.um-pillars>div,.diagram,.evo-top,.stage2,.evo-meter,.eras,.evo-intro,.foot .fb,.foot .links,.marquee';
   const io=new IntersectionObserver(es=>es.forEach(e=>{ if(!e.isIntersecting) return; const el=e.target; io.unobserve(el); el.classList.add('in');
-    const done=()=>{ el.classList.remove('sr','in'); el.style.removeProperty('--sd'); }; setTimeout(done,1400+parseFloat(el.style.getPropertyValue('--sd')||0)*1000); }),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    const done=()=>{ el.classList.remove('sr','in'); el.style.removeProperty('--sd'); }; setTimeout(done,650+parseFloat(el.style.getPropertyValue('--sd')||0)*1000); }),{threshold:.01,rootMargin:'0px 0px 6% 0px'});
   const seen=new WeakSet();
   const arm=()=>document.querySelectorAll(SEL).forEach(el=>{ if(seen.has(el)) return; seen.add(el); if(el.getBoundingClientRect().top<innerHeight*.92) return;
-    const sib=[...el.parentElement.children].filter(x=>x.matches(SEL)), i=Math.max(0,sib.indexOf(el)); el.style.setProperty('--sd',(Math.min(i,6)*.09).toFixed(2)+'s'); el.classList.add('sr'); io.observe(el); });
+    const sib=[...el.parentElement.children].filter(x=>x.matches(SEL)), i=Math.max(0,sib.indexOf(el)); el.style.setProperty('--sd',(Math.min(i,3)*.05).toFixed(2)+'s'); el.classList.add('sr'); io.observe(el); });
   arm(); setTimeout(arm,900); setTimeout(arm,2500);
   const par=[...document.querySelectorAll('.um-float')]; let tick=false;
   const upd=()=>{ tick=false; const vh=innerHeight; par.forEach(el=>{ const r=el.getBoundingClientRect(), c=(r.top+r.height/2-vh/2)/vh; el.style.transform=`translate3d(0,${(c*-28).toFixed(1)}px,0)`; }); };
