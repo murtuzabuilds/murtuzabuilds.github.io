@@ -1164,6 +1164,7 @@ html.has-cur .cur{opacity:1}
 #portfolio .labc{width:auto;border-radius:18px}
 @media (max-width:760px){#portfolio .labc .kp{display:none}}
 @media (max-width:760px){#portfolio .lab{grid-template-columns:1fr}}
+@media (min-width:761px){#portfolio .labc:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 9px);justify-self:center}}
 
 /* Selected Work opens with Umbra */
 .work-head{padding-bottom:40px}
@@ -2384,7 +2385,7 @@ const CARD={
   apply:['Job-matching engine','Ranks roles by ATS match, career track and city, then suggests honest resume tailoring.']};
 PROJECTS.forEach(p=>{ if(p.id==='lighthouse'&&!p.brandBg){ p.brandBg='#0A0E1F'; p.brandInk='#EAEEFF'; p.brand='#6F86FF'; } if(p.id==='google'&&!p.brandBg){ p.brandBg='#0C1714'; p.brandInk='#E6F5F0'; p.brand='#2FD9B4'; } if(p.id==='prdjira'&&!p.brandBg){ p.brandBg='#0E1320'; p.brandInk='#E8ECF7'; p.brand='#FFB21E'; } if(p.id==='apply'&&!p.brandBg){ p.brandBg='#0A1A16'; p.brandInk='#E6F5F0'; p.brand='#2FD9B4'; } });
 const COVER={zentra:'media/zentra/cover.webp',cardright:'media/cardright/cover.webp',outpost:'media/outpost/cover.webp'};
-const LAB_ORDER=['outpost','cardright','lighthouse','google','conatus','zentra','athlevo','finpath','nova','piggywise','prdjira','apply']; const labItems=LAB_ORDER.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean);
+const LAB_ORDER=['cardright','lighthouse','google','conatus','zentra','athlevo','finpath','nova','piggywise','prdjira','apply']; const labItems=LAB_ORDER.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean);
 $('lab').innerHTML=labItems.map(p=>`<button type="button" class="labc" data-open="${p.id}" style="--brand-bg:${p.brandBg};--brand-ink:${p.brandInk}">
   <div class="im">${(()=>{const v=p.media.find(x=>x.video); return v?`<video class="lv" muted loop playsinline preload="none" poster="${v.t}" data-src="${v.src}" aria-hidden="true"></video>`:'';})()}${p.media.length?p.media.filter(x=>!x.video).slice(0,6).map((m,i)=>`<img src="${i===0&&COVER[p.id]?COVER[p.id]:m.t}" alt="${esc(m.cap)}" loading="${i===0?'eager':'lazy'}" class="${i===0?'on':''}">`).join('')+`<div class="dots">${p.media.filter(x=>!x.video).slice(0,6).map((m,i)=>`<i class="${i===0?'on':''}"></i>`).join('')}</div>`:`<canvas data-cover="${p.id}" data-brand="1" aria-hidden="true"></canvas>`}</div>
   ${p.proto&&p.live?`<span class="pchip" style="--kp:${p.brand}">▶ Prototype · live code</span>`:p.proto?`<span class="pchip" style="--kp:${p.brand}">▶ Live prototype</span>`:p.live?`<span class="pchip" style="--kp:${p.brand}">▶ Live app · open source</span>`:''}${p.metrics?`<span class="kp" style="--kp:${p.brand}"><b>${p.metrics[0][0]}</b> ${p.metrics[0][1].split(' ').slice(0,4).join(' ')}</span>`:''}<div class="lt"><small>${CARD[p.id]?CARD[p.id][0]:p.type} · ${p.year}</small><b>${p.title}</b><span>${CARD[p.id]?CARD[p.id][1]:p.blurb}</span><i>&rarr;</i></div></button>`).join('');
