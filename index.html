@@ -2843,7 +2843,7 @@ const still=matchMedia('(prefers-reduced-motion: reduce)').matches; let on=false
 const t0=performance.now();
 function f(now){const t=(now-t0)/1000; x.clearRect(0,0,W,H);
  for(const [a,b,c] of S){x.globalAlpha=(.05+c*.35)*(.55+.45*Math.sin(t*(.6+c*1.8)+c*40));x.fillStyle='#F5E6C8';x.fillRect(a*W,b*H,c>.85?1.5:1,c>.85?1.5:1)} x.globalAlpha=1;
- const cr=cv.getBoundingClientRect(), sr=sec.querySelector('.um-sun').getBoundingClientRect(); const X=sr.left-cr.left+sr.width/2, Y=sr.top-cr.top+sr.height/2, R=Math.min(sr.width,sr.height)/2/2.45;
+ const cr=cv.getBoundingClientRect(), sr=sec.querySelector('.um-sun').getBoundingClientRect(); const X=sr.left-cr.left+sr.width/2, Y=sr.top-cr.top+sr.height/2, R=Math.min(sr.width,sr.height)/2/(innerWidth<900?2.05:1.75);
  heat+=((Math.hypot(mx-X,my-Y)<R*2.6?1:0)-heat)*.05; draw(x,X,Y,R,t,heat,{lean:mx>-1e3?[(mx-X)/(R*4),(my-Y)/(R*4)]:[0,0]});
  if(on&&!still) requestAnimationFrame(f)}
 if(still) requestAnimationFrame(f);
