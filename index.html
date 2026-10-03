@@ -316,6 +316,9 @@ html.has-cur .cur{opacity:1}
   .track,.flow,.eyebrow i{animation:none}
 }
 
+/* decorative pieces may poke past the edge between tablet and laptop widths; never let that scroll the page sideways */
+html{overflow-x:clip}
+
 /* ---------- Responsive ---------- */
 @media (max-width:860px){
   .caps{grid-template-columns:1fr}
@@ -1160,11 +1163,19 @@ html.has-cur .cur{opacity:1}
 
 /* Selected Work: one grid of design case studies and personal builds */
 #portfolio #featured,#portfolio #filters,#portfolio #pgrid,#portfolio .lab-head,#portfolio .lab-bar{display:none!important}
-#portfolio .lab{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;overflow:visible;margin:44px 0 0;padding:0;cursor:auto;scroll-snap-type:none}
-#portfolio .labc{width:auto;border-radius:18px}
-@media (max-width:760px){#portfolio .labc .kp{display:none}}
+#portfolio .lab{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;overflow:visible;margin:44px 0 0;padding:0;cursor:auto;scroll-snap-type:none}
+#portfolio .labc{width:auto;border-radius:16px}
+#portfolio .labc .lt{padding:15px 16px 17px;gap:4px 12px}
+#portfolio .labc .lt b{font-size:21px}
+#portfolio .labc .lt span{font-size:12.5px;line-height:1.45}
+#portfolio .labc .lt small{font-size:9.5px}
+#portfolio .labc .lt i{width:34px;height:34px;font-size:13px}
+#portfolio .labc .kp{display:none}
+@media (max-width:1020px){#portfolio .lab{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:760px){#portfolio .lab{grid-template-columns:1fr}}
-@media (min-width:761px){#portfolio .labc:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 9px);justify-self:center}}
+/* a lone card on the last row sits in the middle */
+@media (min-width:1021px){#portfolio .labc:last-child:nth-child(3n+1){grid-column:2}}
+@media (min-width:761px) and (max-width:1020px){#portfolio .labc:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 8px);justify-self:center}}
 
 /* Selected Work opens with Umbra */
 .work-head{padding-bottom:40px}
@@ -2385,7 +2396,7 @@ const CARD={
   apply:['Job-matching engine','Ranks roles by ATS match, career track and city, then suggests honest resume tailoring.']};
 PROJECTS.forEach(p=>{ if(p.id==='lighthouse'&&!p.brandBg){ p.brandBg='#0A0E1F'; p.brandInk='#EAEEFF'; p.brand='#6F86FF'; } if(p.id==='google'&&!p.brandBg){ p.brandBg='#0C1714'; p.brandInk='#E6F5F0'; p.brand='#2FD9B4'; } if(p.id==='prdjira'&&!p.brandBg){ p.brandBg='#0E1320'; p.brandInk='#E8ECF7'; p.brand='#FFB21E'; } if(p.id==='apply'&&!p.brandBg){ p.brandBg='#0A1A16'; p.brandInk='#E6F5F0'; p.brand='#2FD9B4'; } });
 const COVER={zentra:'media/zentra/cover.webp',cardright:'media/cardright/cover.webp',outpost:'media/outpost/cover.webp'};
-const LAB_ORDER=['cardright','lighthouse','google','conatus','zentra','athlevo','finpath','nova','piggywise','prdjira','apply']; const labItems=LAB_ORDER.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean);
+const LAB_ORDER=['cardright','lighthouse','google','conatus','zentra','athlevo','finpath','nova','prdjira','apply']; const labItems=LAB_ORDER.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean);
 $('lab').innerHTML=labItems.map(p=>`<button type="button" class="labc" data-open="${p.id}" style="--brand-bg:${p.brandBg};--brand-ink:${p.brandInk}">
   <div class="im">${(()=>{const v=p.media.find(x=>x.video); return v?`<video class="lv" muted loop playsinline preload="none" poster="${v.t}" data-src="${v.src}" aria-hidden="true"></video>`:'';})()}${p.media.length?p.media.filter(x=>!x.video).slice(0,6).map((m,i)=>`<img src="${i===0&&COVER[p.id]?COVER[p.id]:m.t}" alt="${esc(m.cap)}" loading="${i===0?'eager':'lazy'}" class="${i===0?'on':''}">`).join('')+`<div class="dots">${p.media.filter(x=>!x.video).slice(0,6).map((m,i)=>`<i class="${i===0?'on':''}"></i>`).join('')}</div>`:`<canvas data-cover="${p.id}" data-brand="1" aria-hidden="true"></canvas>`}</div>
   ${p.proto&&p.live?`<span class="pchip" style="--kp:${p.brand}">▶ Prototype · live code</span>`:p.proto?`<span class="pchip" style="--kp:${p.brand}">▶ Live prototype</span>`:p.live?`<span class="pchip" style="--kp:${p.brand}">▶ Live app · open source</span>`:''}${p.metrics?`<span class="kp" style="--kp:${p.brand}"><b>${p.metrics[0][0]}</b> ${p.metrics[0][1].split(' ').slice(0,4).join(' ')}</span>`:''}<div class="lt"><small>${CARD[p.id]?CARD[p.id][0]:p.type} · ${p.year}</small><b>${p.title}</b><span>${CARD[p.id]?CARD[p.id][1]:p.blurb}</span><i>&rarr;</i></div></button>`).join('');
@@ -2684,10 +2695,10 @@ const KB=[
   {k:'athlevo athlete athletic sports coach coaching training fitness booking',a:'Athlevo is an app for booking verified coaches, venues and events around your schedule. He designed it from research to a tested prototype, then built it.',src:['Selected Work · Athlevo','work'],open:'athlevo'},
   {k:'finpath finance fintech saas dashboard transactions spending',a:'Finpath is a finance dashboard he designed and built, with an AI assistant that analyzes your spending and suggests where to save.',src:['Selected Work · Finpath','work'],open:'finpath'},
   {k:'nova voice assistant',a:'Nova AI is a voice assistant he designed and built, with memory, tool calling and a visible trace of how it decides.',src:['Selected Work · Nova AI','work'],open:'nova'},
-  {k:'piggywise budget budgeting money planner expenses',a:'Piggywise is a budget planner app he designed, focused on making spending and goals easy to see.',src:['Selected Work · Piggywise','work'],open:'piggywise'},
+  {k:'piggywise budget budgeting money planner expenses',a:'Piggywise is a budget planner app he designed, focused on making spending and goals easy to see.',src:['Earlier work · Piggywise','work'],open:'piggywise'},
   {k:'n8n jira prd pipeline automation atlassian',a:'PRD-to-Jira turns a product requirements doc into Jira epics and stories, with an n8n workflow he built on the Atlassian API.',src:['Selected Work · PRD-to-Jira','work'],open:'prdjira'},
   {k:'apply engine resume ats job',a:'Apply Engine is a React app he built that ranks job roles by fit and suggests honest resume tailoring.',src:['Selected Work · Apply Engine','work'],open:'apply'},
-  {k:'projects work portfolio builds side personal built design lab ux ui figma prototype',a:'Selected Work opens with Umbra, then CardRight, AI Regulatory Verification at Lighthouse AI, AI Win/Loss Analytics for his MBA capstone, Conatus, Zentra, Athlevo, Finpath, Nova AI, Piggywise, PRD-to-Jira and Apply Engine.',src:['Selected Work','work']},
+  {k:'projects work portfolio builds side personal built design lab ux ui figma prototype',a:'Selected Work opens with Outpost and Umbra, then CardRight, AI Regulatory Verification at Lighthouse AI, AI Win/Loss Analytics for his MBA capstone, Conatus, Zentra, Athlevo, Finpath, Nova AI, PRD-to-Jira and Apply Engine.',src:['Selected Work','work']},
   {k:'github code repo repositories open source build built programming developer engineer python javascript react',a:'His personal builds are open source at github.com/murtuzabuilds, nine repos with tests and live demos: Conatus (AI growth companion), Nova (voice assistant with memory and tool calling), PRD-to-Jira (PRD parser, Jira REST CLI and n8n workflow), Apply Engine (React job ranking and resume tailoring), handoff (human-in-the-loop LLM agent), pmkit (RICE, PRD linting, win/loss dashboards), and coded versions of his Athlevo, Zentra and Finpath case studies. Client work at Deloitte and Lighthouse AI is confidential and not on GitHub.',src:['Built in public','code'],link:['GitHub','https://github.com/murtuzabuilds']},
   {k:'mba education school study studying degree wisconsin madison business wsb graduate graduation stem scholarship',a:'An MBA at the Wisconsin School of Business, UW-Madison, in Technology Strategy and Product Management (STEM), on the Trusted to Lead full-tuition merit scholarship. Graduating May 2027. Before that, an M.Sc. (BS/MS Integrated) in Human-Computer Interaction from St. Xavier\'s College, University of Calcutta.',src:['Path · Chapter 3','path']},
   {k:'leadership activities clubs club consulting association ta teaching grainger fellow',a:'At Wisconsin he\'s Project Manager for the Graduate Business Consulting Association, Engagement Associate in the Tech Product Club, Instructor TA at the Design Innovation Lab, Product Fabrication Fellow at the Grainger Engineering Lab, and a PPFB Instructor.',src:['Path · Chapter 3','path']},
