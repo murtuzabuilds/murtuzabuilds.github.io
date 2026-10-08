@@ -1561,7 +1561,7 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
       <div class="mail"><code id="email">murtuzabuilds@gmail.com</code><button type="button" id="copyEmail">Copy</button></div>
     </div>
     <div class="qs">
-      <details open><summary>What kind of PM role are you looking for?</summary><p>AI-native product roles where the interaction model is still being worked out: agents, copilots and workflow tools. I'm most useful where design, strategy and engineering need one person holding the thread.</p></details>
+      <details open><summary>What kind of PM role are you looking for?</summary><p>Product manager roles, especially on AI products: agents, copilots and workflow tools where the interaction model is still being worked out. I'm most useful where design, strategy and engineering need one person holding the thread.</p></details>
       <details><summary>What are you working on right now?</summary><p>I'm a Senior AI Product Manager Intern at Lighthouse AI in Regulatory Intelligence, building the technical foundation of an AI-driven verification product. I'm also leading an AI PM capstone on win/loss analytics.</p></details>
       <details><summary>What does Human-AI Interaction mean in practice?</summary><p>Deciding where the AI acts alone, where it asks first, and where it steps aside. Then designing the signals that keep a person informed and in control, like confidence, sources and an easy undo. The assistant on this page is a small example: it shows its confidence and its source, and it says so when it doesn't know.</p></details>
       <details><summary>Do you still design and build?</summary><p>Yes. I started as a product designer at Tinder, I prototype in Figma, and I build my own AI tools, like a PRD-to-Jira pipeline in n8n and Nova AI, a context-aware voice assistant.</p></details>
@@ -2000,7 +2000,7 @@ const shade=(hex,f)=>{const n=parseInt(hex.slice(1),16);let r=n>>16,g=n>>8&255,b
           const k=j*cols+i, tg=I<.06?0:Math.max(0,Math.min(4,Math.round(I*4))); if(Math.abs(tg-lvl[k])>=1||Math.random()<.1) lvl[k]=tg===0?0:Math.max(1,Math.min(4,Math.round(I*4+(Math.random()-.5)*.9)));
           line+=CH[lvl[k]]; }
         oc.fillText(line,x0,y0+j*rh); }
-      c.save(); c.filter=`blur(${Math.max(5,fs*.9)}px)`; c.globalAlpha=.9; c.drawImage(off,0,0,w,h); c.restore(); c.drawImage(off,0,0,w,h);
+      c.save(); c.filter=`blur(${P.dark?Math.max(5,fs*.9):Math.max(3,fs*.45)}px)`; c.globalAlpha=P.dark?.9:.28; c.drawImage(off,0,0,w,h); c.restore(); c.drawImage(off,0,0,w,h); if(!P.dark){ c.save(); c.globalAlpha=.55; c.drawImage(off,0,0,w,h); c.restore(); }
     },{host:card});
   });
 })();
@@ -2016,13 +2016,13 @@ const ys=[40,102,165,228,290];
   const TX=262, TY=165, cols=['var(--ink-3)','var(--ink-2)','var(--ink-4)','var(--c1)','var(--c2)','var(--c3)','var(--c4)'];
   let html='';
   IN.forEach((lab,i)=>{
-    const y=18+i*(294/(IN.length-1))+(r()-.5)*10, x=(i%3)*14+r()*18, sx=x+lab.length*8.1+8;
-    const cl=v=>Math.max(8,Math.min(322,v)); const m1x=sx+40+r()*50, m1y=cl(y+(r()-.5)*120), m2x=160+r()*60, m2y=cl(TY+(r()-.5)*150);
+    const y=20+i*(290/(IN.length-1)), x=150+(r()-.5)*6, sx=x+9;
+    const cl=v=>Math.max(8,Math.min(322,v)); const m1x=sx+18+r()*34, m1y=cl(y+(r()-.5)*120), m2x=160+r()*60, m2y=cl(TY+(r()-.5)*150);
     const d=`M${sx.toFixed(1)} ${y.toFixed(1)} C ${m1x.toFixed(1)} ${cl(y+(r()-.5)*90).toFixed(1)}, ${(m1x+30).toFixed(1)} ${m1y.toFixed(1)}, ${((m1x+m2x)/2).toFixed(1)} ${((m1y+m2y)/2).toFixed(1)} S ${(TX-30).toFixed(1)} ${(TY+(r()-.5)*24).toFixed(1)}, ${TX} ${TY}`;
     let dots='';
     if(!reduce) for(let k=0;k<4;k++){ const s=(1.8+r()*2.2).toFixed(1), dur=(2.2+r()*3.2).toFixed(2), beg=(-r()*5).toFixed(2), c=cols[Math.floor(r()*cols.length)];
       dots+=`<rect x="${-s/2}" y="${-s/2}" width="${s}" height="${s}" fill="${c}" opacity="${(.45+r()*.5).toFixed(2)}"><animateMotion dur="${dur}s" begin="${beg}s" repeatCount="indefinite" path="${d}" keyPoints="0;${(.3+r()*.3).toFixed(2)};1" keyTimes="0;${(.4+r()*.3).toFixed(2)};1" calcMode="linear"/></rect>`; }
-    html+=`<g class="in-g"><path class="in-p" d="${d}"/>${dots}<text class="in-l" x="${x.toFixed(1)}" y="${(y+3.5).toFixed(1)}" style="animation-delay:${(-r()*3).toFixed(2)}s">${lab}</text></g>`;
+    html+=`<g class="in-g"><path class="in-p" d="${d}"/>${dots}<text class="in-l" text-anchor="end" x="${x.toFixed(1)}" y="${(y+3.5).toFixed(1)}" style="animation-delay:${(-r()*3).toFixed(2)}s">${lab}</text></g>`;
   });
   box.innerHTML=html;
 })();
@@ -2752,7 +2752,7 @@ const KB=[
   {k:'focus thesis hci hai human ai interaction philosophy lens approach believe',a:'The shift from Human-Computer Interaction to Human-AI Interaction: deciding what the AI should do, what the person should decide, and how each one knows what the other is doing.',src:['The Human-AI Intersection','about']},
   {k:'research vision thesis theses creative gene hci hai agentic ai autonomy trust intent future theory of change belief mission',a:'His research started in HCI: his MS thesis The Creative Gene studies how interface architectures and information mechanisms modulate decision-making. His vision traces HCI (direct manipulation) to HAI (collaborative intelligence) to agentic systems (orchestrated autonomy), with five theses: intent is the new interface, autonomy is earned not granted, grounded by default and explainable by design, from responding to anticipating, and insight before model.',src:['Research & Vision','vision']},
   {k:'digital transformation dt modernization enterprise change automation workflows operating model',a:'Digital transformation is where he built his career: at Deloitte he worked in Product Strategy and Digital Transformation, helping enterprises rethink how work gets done. Umbra applies the same idea to AI, turning unapproved AI use into a plan for where to invest.',src:['The Path So Far','path']},
-  {k:'role looking hire hiring job position pm product manager want seeking available availability start when open',a:'He\'s looking for AI-native product roles (agents, copilots, workflow tools), available full-time after graduating in May 2027.',src:['Questions I get asked','contact']},
+  {k:'role looking hire hiring job position pm product manager want seeking available availability start when open',a:'He\'s looking for product manager roles, especially on AI products (agents, copilots, workflow tools), available full-time after graduating in May 2027.',src:['Questions I get asked','contact']},
   {k:'where located location based live city madison',a:'He\'s based in Madison, Wisconsin.',src:['Footer','contact']},
   {k:'contact email reach talk meet call book schedule chat coffee linkedin',a:'Email murtuzabuilds@gmail.com, connect on LinkedIn (linkedin.com/in/momurtuza), see his code on GitHub (github.com/murtuzabuilds), or pick a day in the calendar below.',src:['Contact','contact'],link:['LinkedIn','https://linkedin.com/in/momurtuza']},
   {k:'why hire strength strengths different unique value bring',a:'He brings design training, enterprise product strategy and hands-on AI product work together, so the user, the model and the business case stay in one head.',src:['Capabilities','about']}
