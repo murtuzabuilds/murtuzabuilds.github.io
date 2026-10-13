@@ -474,7 +474,9 @@ html{overflow-x:clip}
 .lab.drag{cursor:grabbing;scroll-snap-type:none}
 .labc{flex:none;width:min(560px,82vw);scroll-snap-align:start;background:var(--brand-bg,#111);color:var(--brand-ink,#fff);border:0;padding:0;text-align:left;cursor:pointer;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .labc:hover{transform:translateY(-4px)}
-.labc .im{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--brand-bg,#111)}
+/* the card is a <button>: Safari ignores aspect-ratio on a box whose children are all absolutely positioned inside it, so the 16:10 height comes from a padding spacer instead */
+.labc .im{position:relative;display:block;width:100%;flex:none;overflow:hidden;background:var(--brand-bg,#111)}
+.labc .im::after{content:"";display:block;padding-top:62.5%}
 .labc .im img,.labc .im canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s ease,transform 1.2s cubic-bezier(.2,.8,.2,1)}
 .labc .im img{opacity:0}
 .labc .im video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s;z-index:1}
@@ -2435,7 +2437,7 @@ coverScenes(document); mountWL(document);
 const CARD={
   outpost:['Agent operations · Flagship 2 of 2','The control room for a crew of agents. Each bot acts alone up to a limit it has earned, risky calls wait for you, and a rule change can be tested before it goes live.'],
   cardright:['Payments optimizer · Working AI product','Tells you which card to use for every purchase by counting what your cards cost you, not just what they pay you. Real cards, real store rules.'],
-  regverify:['Regulatory verification · anonymized','Turns regulated records into verification decisions compliance teams can act on.'],
+  regverify:['Regulatory verification','Turns regulated records into verification decisions compliance teams can act on.'],
   winloss:['Revenue analytics · MBA capstone','Shows revenue teams why deals are lost and where win rates are heading.'],
   conatus:['Personal growth companion','Turns who you want to become into a dated plan, daily check-ins and a clear next step.'],
   zentra:['Focus and productivity app','A focus buddy for Gen Z that notices distraction and builds plans, streaks and rewards around how you work.'],
@@ -2449,7 +2451,7 @@ PROJECTS.forEach(p=>{ if(p.id==='regverify'&&!p.brandBg){ p.brandBg='#0A0E1F'; p
 const COVER={zentra:'media/zentra/cover.webp',cardright:'media/cardright/cover.webp',outpost:'media/outpost/cover.webp'};
 const LAB_ORDER=['regverify','winloss','cardright','nova','conatus','prdjira','finpath','zentra','athlevo'];
 const LAB_GROUPS=[['Shipped with AI','Products and tools where AI or automation does the core work, from anonymized professional work and my MBA capstone to products I built end to end.',6],['Built from research','Products that started with user research and ended as a working build.',3]];
-const CARD_TAG={zentra:'Product case study',athlevo:'Product case study'}; const labItems=LAB_ORDER.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean);
+const CARD_TAG={regverify:'Anonymized',zentra:'Product case study',athlevo:'Product case study'}; const labItems=LAB_ORDER.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean);
 const labCard=p=>`<button type="button" class="labc" data-open="${p.id}" style="--brand-bg:${p.brandBg};--brand-ink:${p.brandInk}">
   <div class="im">${(()=>{const v=p.media.find(x=>x.video); return v?`<video class="lv" muted loop playsinline preload="none" poster="${v.t}" data-src="${v.src}" aria-hidden="true"></video>`:'';})()}${p.media.length?p.media.filter(x=>!x.video).slice(0,6).map((m,i)=>`<img src="${i===0&&COVER[p.id]?COVER[p.id]:m.t}" alt="${esc(m.cap)}" loading="${i===0?'eager':'lazy'}" class="${i===0?'on':''}">`).join('')+`<div class="dots">${p.media.filter(x=>!x.video).slice(0,6).map((m,i)=>`<i class="${i===0?'on':''}"></i>`).join('')}</div>`:`<canvas data-cover="${p.id}" data-brand="1" aria-hidden="true"></canvas>`}</div>
   ${p.proto&&p.live?`<span class="pchip" style="--kp:${p.brand}">▶ Prototype · working code</span>`:p.proto?`<span class="pchip" style="--kp:${p.brand}">▶ Clickable prototype</span>`:p.live?`<span class="pchip" style="--kp:${p.brand}">▶ Working app · open source</span>`:''}${p.metrics?`<span class="kp" style="--kp:${p.brand}"><b>${p.metrics[0][0]}</b> ${p.metrics[0][1].split(' ').slice(0,4).join(' ')}</span>`:''}<div class="lt"><small>${CARD[p.id]?CARD[p.id][0]:p.type} · ${CARD_TAG[p.id]||p.year}</small><b>${p.title}</b><span>${CARD[p.id]?CARD[p.id][1]:p.blurb}</span><i>&rarr;</i></div></button>`;
