@@ -1480,9 +1480,9 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
 
 
 <div class="stats" id="stats">
-  <div class="stat"><b data-to="84" data-suf="%">84%</b><span>of rules Umbra's AI wrote correctly in testing. Without AI: 55%.</span><em>Umbra · 51 test policies</em></div>
+  <div class="stat"><b data-to="90" data-suf="%">90%</b><span>of rules Umbra's AI wrote correctly in testing. Without AI: 55%.</span><em>Umbra · 51 test policies</em></div>
   <div class="stat"><b data-to="23" data-pre="+" data-suf="%">+23%</b><span>more work shipped when a person answers agents in 15 seconds, not a minute. Doubling their limits: +1%.</span><em>Outpost · simulated shifts</em></div>
-  <div class="stat"><b data-from="74" data-to="83" data-arrow="1">74→83</b><span>usability score lift ahead of a GTM launch</span><em><a href="#p-deloitte" data-open="deloitte">Deloitte case study</a></em></div>
+  <div class="stat"><b data-from="74" data-to="83" data-arrow="1">74→83</b><span>System Usability Scale (SUS) score lift ahead of a GTM launch</span><em><a href="#p-deloitte" data-open="deloitte">Deloitte case study</a></em></div>
   <div class="stat"><b data-to="6" data-suf="+">6+</b><span>years across product design, strategy and AI</span><em>Tinder · Deloitte</em></div>
 </div>
 
@@ -1530,7 +1530,7 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
       </div>
       <div class="um-pillars">
         <div><b>Demand map</b>Shows where teams need approved AI, based on what they already use.</div>
-        <div><b>Corona (AI assistant)</b>Drafts rules from plain English on gpt-oss-120b, an open-weight model served by Groq: 43 of 51 right on a 51-sentence test set I wrote, against 28 for rules alone. A small test, not a production accuracy figure. Chosen for speed (a median of 481 ms per draft) and because a regulated customer could host it themselves. A person approves every draft; fixed rules enforce it.</div>
+        <div><b>Corona (AI assistant)</b>Drafts rules from plain English on gpt-oss-120b, an open-weight model served by Groq: 46 of 51 right on a 51-sentence test set I wrote, against 28 for rules alone. A small test, not a production accuracy figure. Chosen for speed (a median of 481 ms per draft) and because a regulated customer could host it themselves. A person approves every draft; fixed rules enforce it.</div>
         <div><b>Agent owners</b>Every agent gets a named owner, permissions and a money limit. Approved agents go to work in Outpost.</div>
       </div>
     </div>
@@ -1594,7 +1594,7 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
     <div class="dc-g">
       <div><small>01 · The trade-off</small><p>A model that decides allow or block on live traffic is flexible, but the same input can get a different answer. Rules alone are predictable, but miss how people actually write.</p></div>
       <div class="on"><small>02 · What I chose</small><p><b>The AI drafts, fixed rules enforce, and a person approves every change.</b> The cost is a slower path from a written policy to a live rule.</p></div>
-      <div><small>03 · The evidence</small><p>On 51 test sentences, the drafts were right 43 times against 28 for rules alone, with 0 unsafe. Most misses dropped a condition, which over-blocks rather than leaks.</p></div>
+      <div><small>03 · The evidence</small><p>On 51 test sentences, the drafts were right 46 times against 28 for rules alone, with 0 unsafe. The 5 misses dropped or misread a condition, or refused a sentence outright.</p></div>
       <div><small>04 · What I would test next</small><p>Five analysts write ten policies each, with and without the drafts, checked against one answer key. If it is not faster, or the drafts need too much fixing, the feature does not earn its place.</p></div>
     </div>
     <a class="dc-l" href="https://murtuzabuilds.com/umbra/case-study.html#results" target="_blank" rel="noopener">Full reasoning in the Umbra case study ↗</a>
@@ -1633,7 +1633,7 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
     <div class="tier one">
       <div class="conn"><b>2021</b></div>
       <div class="l"><span class="pill">Chapter 3</span><h3>Deloitte</h3><p>Senior Analyst, Product Strategy, then Consultant, Product Manager.</p>
-        <p class="line">Selected as 1 of 12 on the Core Advisory Council for Zora AI, shaping prompt standards, tool-calling flows and safety guardrails for 2,700+ users. Led 9 structured research sessions with engineering ahead of a B2B SaaS launch, lifting usability scores from 74 to 83.</p>
+        <p class="line">Selected as 1 of 12 on the Core Advisory Council for Zora AI, shaping prompt standards, tool-calling flows and safety guardrails for 2,700+ users. Led 9 structured research sessions with engineering ahead of a B2B SaaS launch, lifting System Usability Scale scores from 74 to 83.</p>
         <div class="tfoot"><span class="val">2021<small>to 2025</small></span><button class="btn accent" type="button" data-open="deloitte">Case study</button></div></div>
     </div>
     <div class="tier">
@@ -1752,7 +1752,7 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
       <ol class="rv-list">
         <li><b>Autonomy is earned.</b> In Outpost an agent gets a spending limit it earns through clean runs and loses in one click. In Umbra no agent gets in without a named owner.</li>
       </ol>
-      <a class="thesis" href="method/" style="margin-top:22px"><small>Method · AI products</small><b>How I build AI products</b><p>Where a model belongs, how I choose one, testing before launch, designing for failure, and keeping cost tied to value. Measured across four products.</p><span>Read the method →</span></a>
+      <a class="thesis" href="method/" style="margin-top:22px"><small>Method · AI products</small><b>How I build AI products</b><p>Where a model belongs, how I choose one, testing before launch, designing for failure, and keeping cost tied to value. Measured across Umbra, CardRight, Conatus and Outpost.</p><span>Read the method →</span></a>
     </div>
     <div class="rv-col">
       <h3>Research</h3>
@@ -2365,11 +2365,11 @@ const PROJECTS=[
  {id:'deloitte',cat:'pro',org:'Deloitte',year:'2023 to 2025',color:'c3',motif:'bars',type:'Enterprise product strategy',title:'Usability Lift Before a Global Launch',
   role:'Consultant, Product Manager, Deloitte',when:'2023 to 2025',
   blurb:'Structured research with engineering on a global B2B SaaS platform ahead of its go-to-market launch, turned into a prioritized set of product improvements. The client is confidential, so this case is anonymized.',
-  kpi:['74→83','usability score ahead of launch'],
-  metrics:[['74→83','platform usability score, before and after, ahead of the go-to-market launch','client'],['9','structured research sessions led with engineering'],['30+','product improvements identified and prioritized']],
-  snap:['The platform\'s users, and the client team deciding what to fix before a global launch.','Platform usability score, measured before and after.','Prioritizing 30+ improvements against a fixed launch date, so the changes that mattered most to users came first.'],
+  kpi:['74→83','SUS score ahead of launch'],
+  metrics:[['74→83','platform System Usability Scale (SUS) score, before and after, ahead of the go-to-market launch','client'],['9','structured research sessions led with engineering'],['30+','product improvements identified and prioritized']],
+  snap:['The platform\'s users, and the client team deciding what to fix before a global launch.','Platform System Usability Scale (SUS) score, measured before and after.','Prioritizing 30+ improvements against a fixed launch date, so the changes that mattered most to users came first.'],
   problem:'A global B2B SaaS platform was heading toward its go-to-market launch. Before launch, the team needed to know which product problems to fix first, and the time to fix them was fixed.',
-  did:['Led 9 structured research sessions with engineering to find where the platform got in users\' way.','Identified and prioritized 30+ product improvements so the highest-impact fixes came first.','Lifted the platform\'s usability score from 74 to 83 ahead of the go-to-market launch.'],
+  did:['Led 9 structured research sessions with engineering to find where the platform got in users\' way.','Identified and prioritized 30+ product improvements so the highest-impact fixes came first.','Lifted the platform\'s System Usability Scale score from 74 to 83 ahead of the go-to-market launch.'],
   tags:['Product strategy','User research','Prioritization','B2B SaaS','Go to market'],media:[]},
  /* ---- Design and Prototype Lab ---- */
  {id:'nova',kind:'design',cat:'design',org:'Product case study',year:'Aug 2025',color:'c1',brand:'#4F8BFF',brandBg:'#06080F',brandInk:'#F3F6FF',motif:'wave',type:'Voice AI app',title:'Nova AI',
@@ -2941,7 +2941,7 @@ function decode(el){ if(reduce||el.children.length||el.dataset.dec) return; el.d
 /* ---------- Ask my portfolio: grounded retrieval with confidence and sources ---------- */
 const KB=[
   {k:'background experience career history summary years year overall long resume cv before prior previous previously past earlier',a:'A product manager with roots in design and digital transformation. He holds a master\'s in Human-Computer Interaction, started as a product designer at Tinder, spent nearly five years at Deloitte in product strategy and digital transformation, and is now an AI product manager at Lighthouse AI while doing his MBA at Wisconsin.',src:['The Path So Far','path']},
-  {e:['deloitte'],k:'deloitte consulting consultant analyst senior product manager pm strategy',a:'At Deloitte he was a Senior Analyst in Product Strategy, then a Consultant, Product Manager. He prioritized 13 AI initiatives across 8 capability areas, shaping $2M in AI investment priorities, and was selected as 1 of 12 on the Core Advisory Council for Zora AI, shaping prompt standards, tool-calling flows and safety guardrails for 2,700+ users. He also led 9 research sessions with engineering that lifted a usability score from 74 to 83 ahead of a launch.',src:['Path · Chapter 3','path']},
+  {e:['deloitte'],k:'deloitte consulting consultant analyst senior product manager pm strategy',a:'At Deloitte he was a Senior Analyst in Product Strategy, then a Consultant, Product Manager. He prioritized 13 AI initiatives across 8 capability areas, shaping $2M in AI investment priorities, and was selected as 1 of 12 on the Core Advisory Council for Zora AI, shaping prompt standards, tool-calling flows and safety guardrails for 2,700+ users. He also led 9 research sessions with engineering that lifted a System Usability Scale score from 74 to 83 ahead of a launch.',src:['Path · Chapter 3','path']},
   {k:'lighthouse current currently now today intern internship',a:'He is a Senior AI Product Manager Intern in Regulatory Intelligence at Lighthouse AI, where he built the product data pipeline behind an AI verification product for regulatory intelligence. Ask about Umbra, Outpost or CardRight to see how he builds AI products.',src:['Path · Chapter 5','path']},
   {e:['tinder','match'],k:'tinder design designer onboarding consumer dating',a:'At Tinder he started as a Product Design Intern and became a Product Designer. He prototyped 3 onboarding flows using Amplitude behavioral analysis, reducing drop-off 11% in usability testing, and ran a heuristic evaluation of the messaging interface that found 8 usability issues.',src:['Path · Chapter 2','path']},
   {e:['calcutta','xavier','xaviers','kolkata'],k:'hci human computer interaction master masters ms m.s. msc calcutta xavier xaviers kolkata degree undergraduate undergrad bachelor college',a:"He holds an M.S. in Human-Computer Interaction from St. Xavier's College, University of Calcutta, completed in 2020. It is where he learned to design around people, from research to tested prototypes, and where he wrote his thesis, The Creative Gene.",src:['Path · Chapter 1','path']},
@@ -2970,7 +2970,7 @@ const KB=[
   {k:'role roles looking hiring job jobs position pm product manager want seeking available availability start full time fulltime open graduate',a:'He\'s looking for product manager roles, especially on AI products (agents, copilots, workflow tools), available full-time after graduating in May 2027.',src:['Questions I get asked','contact']},
   {k:'where located location based live city madison',a:'He\'s based in Madison, Wisconsin.',src:['Footer','contact']},
   {k:'contact email reach talk meet call book schedule chat coffee linkedin',a:'Email murtuzabuilds@gmail.com, connect on LinkedIn (linkedin.com/in/momurtuza), see his code on GitHub (github.com/murtuzabuilds), or pick a day in the calendar below.',src:['Contact','contact'],link:['LinkedIn','https://linkedin.com/in/momurtuza']},
-  {k:'accomplishment accomplishments achievement achievements impact result results biggest best proud proudest metric metrics numbers success wins',a:'A few, with numbers: in Umbra, the AI model he put behind rule drafting got 43 of 51 test policies right, against 28 for rules alone, with no unsafe drafts. At Deloitte, his research and redesign work lifted a usability score from 74 to 83 ahead of a go-to-market launch. On his own he designed and built three working AI products end to end: Outpost, Umbra and CardRight. The one he is most proud of is Umbra.',src:['Highlights','stats']},
+  {k:'accomplishment accomplishments achievement achievements impact result results biggest best proud proudest metric metrics numbers success wins',a:'A few, with numbers: in Umbra, the AI model he put behind rule drafting got 46 of 51 test policies right, against 28 for rules alone, with no unsafe drafts. At Deloitte, his research and redesign work lifted a System Usability Scale score from 74 to 83 ahead of a go-to-market launch. On his own he designed and built three working AI products end to end: Outpost, Umbra and CardRight. The one he is most proud of is Umbra.',src:['Highlights','stats']},
   {k:'hi hello hey greetings start help',a:'Hi. Ask me anything about his work: Umbra, Outpost and CardRight, what he did at Deloitte, Umbra and Outpost, his education, or when he is available.',src:['Selected Work','work']},
   {k:'why hire strength strengths unique value bring fit stand out management',a:'He brings design training, enterprise product strategy and hands-on AI product work together, so the user, the model and the business case stay in one head.',src:['Capabilities','about']}
 ];

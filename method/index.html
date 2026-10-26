@@ -112,7 +112,7 @@ footer{border-top:1px solid var(--line);padding:28px clamp(20px,5vw,64px);font-s
       <div class="scroll"><table>
         <thead><tr><th>Product</th><th>The model's job</th><th>Model</th><th>Against rules alone</th><th>Speed</th><th>If it fails</th><th>Cost grows with</th></tr></thead>
         <tbody>
-          <tr><td>Umbra</td><td>Turn a policy sentence into a draft rule</td><td>gpt-oss-120b</td><td><b>43 of 51</b> vs 28. 0 unsafe drafts</td><td>Under 0.5 s</td><td>Rules-based parser, after 8 s</td><td>Policies written, not prompts sent</td></tr>
+          <tr><td>Umbra</td><td>Turn a policy sentence into a draft rule</td><td>gpt-oss-120b</td><td><b>46 of 51</b> vs 28. 0 unsafe drafts</td><td>Median 481 ms</td><td>Rules-based parser, after 8 s</td><td>Policies written, not prompts sent</td></tr>
           <tr><td>CardRight</td><td>Name the category of an unfamiliar store</td><td>gpt-oss-120b</td><td><b>17 of 18</b> vs 10, on held-out names</td><td>0.33 s median</td><td>Name rules, and says so</td><td>Unfamiliar stores only</td></tr>
           <tr><td>Conatus</td><td>Write the words of a plan for a goal</td><td>gpt-oss-120b</td><td><b>23 of 30</b> vs 1 plan specific to the goal</td><td>0.64 s median</td><td>Rules planner, and says so</td><td>One call per goal</td></tr>
           <tr><td>Outpost</td><td>None. Allow, hold or stop is one plain function</td><td>No model</td><td><b>0 bypasses</b> in 20,000 random actions</td><td>About 2 µs</td><td>Nothing to fall back from</td><td>Nothing per action</td></tr>
@@ -126,7 +126,7 @@ footer{border-top:1px solid var(--line);padding:28px clamp(20px,5vw,64px);font-s
       <h2>What I gave up, <em>and why.</em></h2>
       <div class="cards">
         <div class="card"><h3>Speed over a model that was just as correct</h3><p>Gemini Flash drafted Umbra rules correctly but several times slower. For a box a person waits on, speed decided it.</p><span class="cost">Cost: less headroom if a harder drafting job comes later.</span></div>
-        <div class="card"><h3>Safe refusal over usefulness</h3><p>When a policy sentence hides an instruction, Umbra's model refuses the whole sentence instead of drafting the genuine half. It handled 2 of 4 such cases and drafted nothing unsafe.</p><span class="cost">Cost: the person rewrites the sentence. Next on the roadmap.</span></div>
+        <div class="card"><h3>Safe refusal over usefulness</h3><p>When a policy sentence hides an instruction, Umbra's model refuses the whole sentence instead of drafting the genuine half. It handled 3 of 4 such cases and drafted nothing unsafe.</p><span class="cost">Cost: the person rewrites the sentence. Next on the roadmap.</span></div>
         <div class="card"><h3>A second opinion over trusting the model</h3><p>CardRight's model called Midstate Gas Company a gas station, and marked it sure. It is a utility bill. The name rules stay on, and when they disagree with the model, the app asks.</p><span class="cost">Cost: an extra question now and then.</span></div>
         <div class="card"><h3>No model where it would demo best</h3><p>A model deciding allow, hold or stop in Outpost would look impressive. It would also break the promise that the same action always gets the same answer, which is what makes the logbook auditable.</p><span class="cost">Cost: less flexible rules, by design.</span></div>
       </div>
