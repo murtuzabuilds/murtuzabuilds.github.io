@@ -1382,6 +1382,15 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
   #path .tiers{flex-direction:row;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:calc(-1*clamp(20px,5vw,68px));padding:0 clamp(20px,5vw,68px) 8px;scrollbar-width:none}
   #path .tier{flex:0 0 84%;scroll-snap-align:center}
 }
+
+@media (min-width:861px){
+  #about .evo-top{margin-top:44px;padding-bottom:20px}
+  #about .stage2{margin-top:18px;aspect-ratio:16/6}
+  #about .evo-meter{margin-top:30px}
+  #about .eras{margin-top:26px;padding-top:24px}
+  #about .evo-intro{margin-bottom:24px}
+}
+.stack-inline{margin-top:56px}.stack-inline .head{margin-top:12px!important}
 </style>
 
 <div class="frame">
@@ -1569,80 +1578,6 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
   <div class="lab-bar"><i id="labProg"></i></div>
 </section>
 
-<section class="pad" id="about">
-  <div class="head hai-head">
-    <h2 class="rv">The Human-AI Intersection.</h2>
-    <p>For forty years, product design meant teaching people to operate computers. Now software acts on its own. My work sits in that shift: deciding what the AI should do, what the person should decide, and how each one knows what the other is doing.</p>
-  </div>
-  <div class="fold evo-fold"><button type="button" class="fold-t" aria-expanded="true"><b>How we got here</b><span>Interactive · the human and the AI, and five interfaces from the command line to agents</span><i aria-hidden="true"></i></button><div class="fold-b"><div class="fold-in"><div class="fold-pad">
-  <div class="hai-ill" id="haiIll">
-    <div class="hai-l"><div class="ascii" data-map="ai" role="img" aria-label="An AI hand drawn in text characters, with a star hovering over the palm"></div></div>
-    <div class="hai-pin" aria-hidden="true"><i></i><span>The AI</span></div>
-    <div class="hai-pin hp" aria-hidden="true"><i></i><span>The Human</span></div>
-    <div class="hai-r"><img src="media/hai/human-hand.webp" alt="A human hand reaching toward the AI hand" loading="lazy"></div>
-  </div>
-  <p class="evo-intro">How we got here, <em>in five interfaces.</em></p>
-  <div class="evo-top">
-    <div class="evo-era"><span class="evo-yr" id="evoYr">1970s</span><b id="evoName">Command line</b></div>
-    <p class="evo-cap" id="evoCap" aria-live="polite">You memorize the commands. The computer waits for exact syntax.</p>
-    <button type="button" class="evo-play" id="evoPlay"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0l9 5-9 5z" fill="currentColor"/></svg><span>Play the evolution</span></button>
-  </div>
-  <div class="stage2" id="interStage">
-    <canvas id="inter" aria-label="Animation: the human and the machine, and the flow of work between them, changing across five eras of interfaces" role="img"></canvas>
-    <div class="marker" style="left:22%;top:76%"><span>The human</span><small id="mkL">types exact commands</small></div>
-    <div class="marker" style="left:76%;top:76%"><span id="mkRt">The machine</span><small id="mkR">executes, literally</small></div>
-    <div class="evo-hint">Move your cursor through it, or click to send a signal</div>
-  </div>
-  <div class="evo-meter"><span>Who does the work</span><div class="bar"><i id="evoH"></i></div><span class="evo-lg"><b class="h">Human</b> <b class="a">AI</b></span></div>
-  <div class="eras" id="eras">
-    <div class="rail" id="eraRail"></div><div class="fill" id="eraFill"></div><div class="knob" id="eraKnob" role="slider" tabindex="0" aria-label="Interface era" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1"></div>
-    <ol>
-      <li><button type="button" data-e="0"><b>1970s</b><span>Command line</span></button></li>
-      <li><button type="button" data-e="1"><b>1984</b><span>Graphical UI</span></button></li>
-      <li><button type="button" data-e="2"><b>2007</b><span>Touch</span></button></li>
-      <li><button type="button" data-e="3"><b>2022</b><span>Conversation</span></button></li>
-      <li><button type="button" data-e="4"><b>Now</b><span>Agents</span></button></li>
-    </ol>
-  </div>
-</div></div></div></div>
-</section>
-
-<section class="pad">
-  <div class="head">
-    <span class="tag"><b></b><b></b><b></b><b></b>Capabilities</span>
-    <h2 class="rv">What I bring to a product team.</h2>
-    <p>I bring HCI, enterprise product strategy and hands-on AI prototyping together.</p>
-  </div>
-  <div class="caps">
-    <div class="cap"><canvas data-icon="compass" data-c="c1" aria-hidden="true"></canvas><h3>Product Strategy</h3><p>At Deloitte I shaped product strategy and roadmaps for enterprise clients, including AI readiness and operating models: deciding what to build first and how it scales.</p></div>
-    <div class="cap"><canvas data-icon="bubble" data-c="c2" aria-hidden="true"></canvas><h3>Human-AI Interaction</h3><p>I started in HCI, designing interfaces people operate, from a master's in Human-Computer Interaction to product design at Tinder. Now I design for AI that acts with them, in builds like Nova, Conatus and Umbra.</p></div>
-    <div class="cap"><canvas data-icon="layers" data-c="c3" aria-hidden="true"></canvas><h3>0-to-1 AI Products</h3><p>Umbra, Outpost and CardRight each went from an idea to a working product, with a model where it helps, fixed rules where it must not guess, and tests that measure the difference.</p></div>
-    <div class="cap"><canvas data-icon="cube" data-c="c4" aria-hidden="true"></canvas><h3>Research to Roadmap</h3><p>JTBD, VoC and usability research turned into RICE-ranked roadmaps that shortened go-to-market cycles for enterprise SaaS products.</p></div>
-  </div>
-  <p class="lab-swipe" aria-hidden="true">Swipe for more &rarr;</p>
-  <div class="chips">
-    <div class="chip"><i style="background:var(--c1)"></i>LLMs, RAG, tool calling</div>
-    <div class="chip"><i style="background:var(--c2)"></i>SQL, R, Amplitude</div>
-    <div class="chip"><i style="background:var(--c3)"></i>PRDs, RICE, JTBD</div>
-    <div class="chip"><i style="background:var(--c4)"></i>Figma, n8n, Jira</div>
-  </div>
-  <div class="fold stack-fold"><button type="button" class="fold-t" aria-expanded="true"><b>The Working Stack</b><span>Tools and methods, grouped by discipline</span><i aria-hidden="true"></i></button><div class="fold-b"><div class="fold-in"><div class="fold-pad">
-  <div class="stack-wrap" id="stackWrap"><div class="diagram">
-    <svg viewBox="0 0 1000 330" role="img" aria-label="Chaotic inputs such as manual workflows, email threads, spreadsheets and ad hoc requests converge into Murtuza, who turns them into five disciplines: AI, product strategy, data, research and design, and automation">
-      <g id="inputs"></g>
-      <path class="ln" d="M366 165 H 470"/><path class="flow" d="M366 165 H 470"/><path class="flow" style="animation-delay:1.1s" d="M366 165 H 470"/>
-      <rect class="tagbox" x="268" y="152" width="98" height="26"/>
-      <text class="tagtx" x="317" y="170" text-anchor="middle">Murtuza</text>
-      <g id="branches"></g>
-      <circle class="hubc" cx="485" cy="165" r="15"/><circle class="fillink" cx="485" cy="165" r="5"/>
-    </svg>
-  </div><div class="stack-pop" id="stackPop" role="dialog" aria-live="polite" hidden></div></div>
-  <div class="head" style="margin-top:28px">
-    <h2 class="rv">The Working Stack.</h2>
-    <p>Tools and methods I use, grouped by discipline. Hover a branch for the full list.</p>
-  </div>
-</div></div></div></div>
-</section>
 <section class="pad" id="path">
   <div class="head">
     <h2 class="rv">The Path So Far.</h2>
@@ -1687,6 +1622,79 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
     </div>
   </div>
   <p class="lab-swipe" aria-hidden="true">Swipe for more &rarr;</p>
+</section>
+
+<section class="pad">
+  <div class="head">
+    <span class="tag"><b></b><b></b><b></b><b></b>Capabilities</span>
+    <h2 class="rv">What I bring to a product team.</h2>
+    <p>I bring HCI, enterprise product strategy and hands-on AI prototyping together.</p>
+  </div>
+  <div class="caps">
+    <div class="cap"><canvas data-icon="compass" data-c="c1" aria-hidden="true"></canvas><h3>Product Strategy</h3><p>At Deloitte I shaped product strategy and roadmaps for enterprise clients, including AI readiness and operating models: deciding what to build first and how it scales.</p></div>
+    <div class="cap"><canvas data-icon="bubble" data-c="c2" aria-hidden="true"></canvas><h3>Human-AI Interaction</h3><p>I started in HCI, designing interfaces people operate, from a master's in Human-Computer Interaction to product design at Tinder. Now I design for AI that acts with them, in builds like Nova, Conatus and Umbra.</p></div>
+    <div class="cap"><canvas data-icon="layers" data-c="c3" aria-hidden="true"></canvas><h3>0-to-1 AI Products</h3><p>Umbra, Outpost and CardRight each went from an idea to a working product, with a model where it helps, fixed rules where it must not guess, and tests that measure the difference.</p></div>
+    <div class="cap"><canvas data-icon="cube" data-c="c4" aria-hidden="true"></canvas><h3>Research to Roadmap</h3><p>JTBD, VoC and usability research turned into RICE-ranked roadmaps that shortened go-to-market cycles for enterprise SaaS products.</p></div>
+  </div>
+  <p class="lab-swipe" aria-hidden="true">Swipe for more &rarr;</p>
+  <div class="chips">
+    <div class="chip"><i style="background:var(--c1)"></i>LLMs, RAG, tool calling</div>
+    <div class="chip"><i style="background:var(--c2)"></i>SQL, R, Amplitude</div>
+    <div class="chip"><i style="background:var(--c3)"></i>PRDs, RICE, JTBD</div>
+    <div class="chip"><i style="background:var(--c4)"></i>Figma, n8n, Jira</div>
+  </div>
+  <div class="stack-inline">
+  <div class="stack-wrap" id="stackWrap"><div class="diagram">
+    <svg viewBox="0 0 1000 330" role="img" aria-label="Chaotic inputs such as manual workflows, email threads, spreadsheets and ad hoc requests converge into Murtuza, who turns them into five disciplines: AI, product strategy, data, research and design, and automation">
+      <g id="inputs"></g>
+      <path class="ln" d="M366 165 H 470"/><path class="flow" d="M366 165 H 470"/><path class="flow" style="animation-delay:1.1s" d="M366 165 H 470"/>
+      <rect class="tagbox" x="268" y="152" width="98" height="26"/>
+      <text class="tagtx" x="317" y="170" text-anchor="middle">Murtuza</text>
+      <g id="branches"></g>
+      <circle class="hubc" cx="485" cy="165" r="15"/><circle class="fillink" cx="485" cy="165" r="5"/>
+    </svg>
+  </div><div class="stack-pop" id="stackPop" role="dialog" aria-live="polite" hidden></div></div>
+  <div class="head" style="margin-top:28px">
+    <h2 class="rv">The Working Stack.</h2>
+    <p>Tools and methods I use, grouped by discipline. Hover a branch for the full list.</p>
+  </div>
+  </div>
+</section>
+
+<section class="pad" id="about">
+  <div class="head hai-head">
+    <h2 class="rv">The Human-AI Intersection.</h2>
+    <p>For forty years, product design meant teaching people to operate computers. Now software acts on its own. My work sits in that shift: deciding what the AI should do, what the person should decide, and how each one knows what the other is doing.</p>
+  </div>
+  <div class="hai-ill" id="haiIll">
+    <div class="hai-l"><div class="ascii" data-map="ai" role="img" aria-label="An AI hand drawn in text characters, with a star hovering over the palm"></div></div>
+    <div class="hai-pin" aria-hidden="true"><i></i><span>The AI</span></div>
+    <div class="hai-pin hp" aria-hidden="true"><i></i><span>The Human</span></div>
+    <div class="hai-r"><img src="media/hai/human-hand.webp" alt="A human hand reaching toward the AI hand" loading="lazy"></div>
+  </div>
+  <p class="evo-intro">How we got here, <em>in five interfaces.</em></p>
+  <div class="evo-top">
+    <div class="evo-era"><span class="evo-yr" id="evoYr">1970s</span><b id="evoName">Command line</b></div>
+    <p class="evo-cap" id="evoCap" aria-live="polite">You memorize the commands. The computer waits for exact syntax.</p>
+    <button type="button" class="evo-play" id="evoPlay"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0l9 5-9 5z" fill="currentColor"/></svg><span>Play the evolution</span></button>
+  </div>
+  <div class="stage2" id="interStage">
+    <canvas id="inter" aria-label="Animation: the human and the machine, and the flow of work between them, changing across five eras of interfaces" role="img"></canvas>
+    <div class="marker" style="left:22%;top:76%"><span>The human</span><small id="mkL">types exact commands</small></div>
+    <div class="marker" style="left:76%;top:76%"><span id="mkRt">The machine</span><small id="mkR">executes, literally</small></div>
+    <div class="evo-hint">Move your cursor through it, or click to send a signal</div>
+  </div>
+  <div class="evo-meter"><span>Who does the work</span><div class="bar"><i id="evoH"></i></div><span class="evo-lg"><b class="h">Human</b> <b class="a">AI</b></span></div>
+  <div class="eras" id="eras">
+    <div class="rail" id="eraRail"></div><div class="fill" id="eraFill"></div><div class="knob" id="eraKnob" role="slider" tabindex="0" aria-label="Interface era" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1"></div>
+    <ol>
+      <li><button type="button" data-e="0"><b>1970s</b><span>Command line</span></button></li>
+      <li><button type="button" data-e="1"><b>1984</b><span>Graphical UI</span></button></li>
+      <li><button type="button" data-e="2"><b>2007</b><span>Touch</span></button></li>
+      <li><button type="button" data-e="3"><b>2022</b><span>Conversation</span></button></li>
+      <li><button type="button" data-e="4"><b>Now</b><span>Agents</span></button></li>
+    </ol>
+  </div>
 </section>
 
 <section class="pad" id="vision">
