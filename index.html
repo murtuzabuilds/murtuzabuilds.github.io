@@ -1478,18 +1478,6 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
   </div>
 </section>
 
-<div class="marquee">
-  <span class="lbl">Work shipped with</span>
-  <div class="tw"><div class="track" id="track">
-    <span><i class="g2"></i>Deloitte</span>
-    <span><i class="g3"></i>Lighthouse AI</span>
-    <span><i class="g4"></i>Hilti</span>
-    <span><i class="g2"></i>FedEx</span>
-    <span><i class="g3"></i>Toyota</span>
-    <span><i class="g4"></i>Tinder</span>
-    <span><i class="g2"></i>Wisconsin School of Business</span>
-  </div></div>
-</div>
 
 <div class="stats" id="stats">
   <div class="stat"><b data-to="84" data-suf="%">84%</b><span>of rules Umbra's AI wrote correctly in testing. Without AI: 55%.</span><em>Umbra · 51 test policies</em></div>
@@ -1874,7 +1862,7 @@ const inPoly=(x,y,p)=>{let o=false;for(let i=0,j=p.length-1;i<p.length;j=i++){co
 /* ---------- nav, progress, menu ---------- */
 $('menuBtn').addEventListener('click',()=>{const o=$('nav').classList.toggle('open');$('menuBtn').setAttribute('aria-expanded',o);});
 $('drawer').addEventListener('click',e=>{if(e.target.tagName==='A'){$('nav').classList.remove('open');$('menuBtn').setAttribute('aria-expanded','false');}});
-const tr=$('track'); tr.innerHTML+=tr.innerHTML;
+const tr=$('track'); if(tr) tr.innerHTML+=tr.innerHTML;
 
 /* ---------- heading reveal ---------- */
 if(!reduce&&'IntersectionObserver' in window){
