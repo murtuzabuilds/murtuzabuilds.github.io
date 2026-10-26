@@ -3109,7 +3109,7 @@ function makeUmbraEclipse(small){ let seed=9; const r=()=>((seed=(seed*16807)%21
 }
 (function(){const cv=document.getElementById('umCanvas'); if(!cv) return; const x=cv.getContext('2d'); const D=Math.min(2,devicePixelRatio||1); let W,H,seed=3; const r=()=>((seed=(seed*16807)%2147483647)/2147483647);
 const draw=makeUmbraEclipse(innerWidth<700), S=Array.from({length:220},()=>[r(),r(),r()]);
-const size=()=>{W=cv.clientWidth;H=cv.clientHeight;cv.width=W*D;cv.height=H*D;x.setTransform(D,0,0,D,0,0)}; size(); addEventListener('resize',size);
+const size=()=>{W=cv.clientWidth;H=cv.clientHeight;cv.width=W*D;cv.height=H*D;x.setTransform(D,0,0,D,0,0)}; size(); addEventListener('resize',size); if(window.ResizeObserver) new ResizeObserver(size).observe(cv);
 const sec=cv.parentElement; let mx=-1e4,my=-1e4,heat=0; sec.addEventListener('pointermove',e=>{const c=cv.getBoundingClientRect();mx=e.clientX-c.left;my=e.clientY-c.top;}); sec.addEventListener('pointerleave',()=>{mx=my=-1e4;});
 const still=matchMedia('(prefers-reduced-motion: reduce)').matches; let on=false; new IntersectionObserver(e=>{on=e[0].isIntersecting; if(on&&!still) requestAnimationFrame(f)}).observe(cv);
 const t0=performance.now();
@@ -4034,9 +4034,10 @@ marks();tick();addEventListener('scroll',tick,{passive:true});addEventListener('
 <script>
 (()=>{ const root=document.documentElement; root.classList.add('fold-js');
   const set=(f,open)=>{ f.classList.toggle('open',open); f.classList.remove('done'); const t=f.querySelector(':scope>.fold-t'), b=f.querySelector(':scope>.fold-b');
-    t.setAttribute('aria-expanded',open); if(open){ b.removeAttribute('inert'); setTimeout(()=>{ if(f.classList.contains('open')){ f.classList.add('done'); dispatchEvent(new Event('resize')); } },560); } else b.setAttribute('inert',''); };
+    t.setAttribute('aria-expanded',open); if(open){ b.removeAttribute('inert'); setTimeout(()=>{ if(f.classList.contains('open')){ f.classList.add('done'); dispatchEvent(new Event('resize')); } },560); } else { b.setAttribute('inert',''); setTimeout(()=>dispatchEvent(new Event('resize')),560); } };
   const folds=[...document.querySelectorAll('.fold')];
   folds.forEach(f=>{ set(f,false); f.querySelector(':scope>.fold-t').addEventListener('click',()=>set(f,!f.classList.contains('open'))); });
+  requestAnimationFrame(()=>dispatchEvent(new Event('resize')));
   const reveal=el=>{ let f=el&&el.closest('.fold'); while(f){ if(!f.classList.contains('open')) set(f,true); f=f.parentElement&&f.parentElement.closest('.fold'); } };
   const fromHash=()=>{ const id=decodeURIComponent(location.hash.slice(1)); if(id){ const el=document.getElementById(id); if(el) reveal(el); } };
   addEventListener('hashchange',fromHash); fromHash();
