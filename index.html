@@ -1409,6 +1409,11 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
 @media (max-width:560px){.dc-g{grid-template-columns:1fr}.dc-g>div,.dc-g>div+div{padding-left:0;border-left:0}.dc-g>div+div{border-top:1px solid var(--line)}}
 
 .me{display:flex;align-items:center;gap:14px;margin-bottom:24px}.me img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:1px solid var(--line-2);box-shadow:0 0 0 4px var(--soft)}.me b{display:block;font-weight:500;font-size:16px;color:var(--ink)}.me span{display:block;font-size:13.5px;color:var(--ink-3);margin-top:2px}
+
+/* Chrome flickers when blurred glass sits over a live WebGL canvas. Chromium only: solid panels instead of blur. */
+.is-chromium .nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:color-mix(in srgb,var(--frame) 97%,transparent)}
+.is-chromium .outp .op-btns a,.is-chromium .umbra .um-pillars div{backdrop-filter:none;-webkit-backdrop-filter:none}
+.is-chromium .outp .op-host{isolation:isolate;transform:translateZ(0)}
 </style>
 
 <div class="frame">
@@ -3997,7 +4002,7 @@ return __OP.mount(host,opts);};
     (window.THREE?Promise.resolve():load('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'))
       .then(function(){ return THREE.OrbitControls?0:load('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js'); })
       .then(function(){ var copy=document.getElementById('opCopy');
-        base=window.__opMount(host,{ tenant:'site', onReady:function(){ poster.classList.add('gone'); }, onFail:fail,
+        base=window.__opMount(host,{ tenant:'site', onReady:function(){ poster.classList.add('gone'); if(window.__chromeFix) window.__chromeFix(host); }, onFail:fail,
           topInset:function(){ return getComputedStyle(copy).position==='absolute'?copy.offsetHeight+18:0; } });
         if(base&&base.event){ base.event('Welcome a visitor who just arrived','schedule'); pending.forEach(function(p){ base.event(p[0],p[1]); }); pending=[]; } })
       .catch(fail);
@@ -4037,6 +4042,15 @@ marks();tick();addEventListener('scroll',tick,{passive:true});addEventListener('
   addEventListener('hashchange',fromHash); fromHash();
   document.addEventListener('click',e=>{ const a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return; const el=document.getElementById(a.getAttribute('href').slice(1)); if(el) reveal(el); },true);
   addEventListener('beforeprint',()=>folds.forEach(f=>set(f,true)));
+})();
+</script>
+<script>
+(()=>{ const ua=navigator.userAgentData; const chromium=ua&&ua.brands?ua.brands.some(b=>/Chromium/.test(b.brand)):/Chrome\//.test(navigator.userAgent);
+  if(!chromium) return; document.documentElement.classList.add('is-chromium');
+  window.__chromeFix=host=>{ const r=host&&host.shadowRoot; if(!r||r.querySelector('style[data-chrome-fix]')) return; const st=document.createElement('style'); st.dataset.chromeFix='1';
+    st.textContent='*{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.pn,.crew,.inspect,.coach,.list,.st,.ask{background:rgba(9,12,22,.94)!important}.btn.ghost{background:rgba(22,26,40,.92)!important}.app.embed .radio,.app.embed .st.simc{background:transparent!important}';
+    r.appendChild(st); };
+  const h=document.getElementById('opHost'); if(h&&h.shadowRoot) window.__chromeFix(h);
 })();
 </script>
 </body>
