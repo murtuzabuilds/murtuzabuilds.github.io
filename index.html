@@ -3109,15 +3109,15 @@ function makeUmbraEclipse(small){ let seed=9; const r=()=>((seed=(seed*16807)%21
 }
 (function(){const cv=document.getElementById('umCanvas'); if(!cv) return; const x=cv.getContext('2d'); const D=Math.min(2,devicePixelRatio||1); let W,H,seed=3; const r=()=>((seed=(seed*16807)%2147483647)/2147483647);
 const draw=makeUmbraEclipse(innerWidth<700), S=Array.from({length:220},()=>[r(),r(),r()]);
-const size=()=>{W=cv.clientWidth;H=cv.clientHeight;cv.width=W*D;cv.height=H*D;x.setTransform(D,0,0,D,0,0)}; size(); addEventListener('resize',size); if(window.ResizeObserver) new ResizeObserver(size).observe(cv);
+let szT=0, ready=false; const size=()=>{const w=cv.clientWidth,h=cv.clientHeight; if(w===W&&h===H) return; W=w;H=h;cv.width=W*D;cv.height=H*D;x.setTransform(D,0,0,D,0,0); if(ready) f(performance.now(),true)}; const sizeSoon=()=>{cancelAnimationFrame(szT); szT=requestAnimationFrame(size)}; size(); addEventListener('resize',sizeSoon); if(window.ResizeObserver) new ResizeObserver(sizeSoon).observe(cv);
 const sec=cv.parentElement; let mx=-1e4,my=-1e4,heat=0; sec.addEventListener('pointermove',e=>{const c=cv.getBoundingClientRect();mx=e.clientX-c.left;my=e.clientY-c.top;}); sec.addEventListener('pointerleave',()=>{mx=my=-1e4;});
 const still=matchMedia('(prefers-reduced-motion: reduce)').matches; let on=false; new IntersectionObserver(e=>{on=e[0].isIntersecting; if(on&&!still) requestAnimationFrame(f)}).observe(cv);
-const t0=performance.now();
-function f(now){const t=(now-t0)/1000; x.clearRect(0,0,W,H);
+const t0=performance.now(); ready=true;
+function f(now,once){const t=(now-t0)/1000; x.clearRect(0,0,W,H);
  for(const [a,b,c] of S){x.globalAlpha=(.05+c*.35)*(.55+.45*Math.sin(t*(.6+c*1.8)+c*40));x.fillStyle='#F5E6C8';x.fillRect(a*W,b*H,c>.85?1.5:1,c>.85?1.5:1)} x.globalAlpha=1;
  const cr=cv.getBoundingClientRect(), sr=sec.querySelector('.um-sun').getBoundingClientRect(); const X=sr.left-cr.left+sr.width/2, Y=sr.top-cr.top+sr.height/2, R=Math.min(sr.width,sr.height)/2/(innerWidth<900?2.05:1.75);
  heat+=((Math.hypot(mx-X,my-Y)<R*2.6?1:0)-heat)*.05; draw(x,X,Y,R,t,heat,{lean:mx>-1e3?[(mx-X)/(R*4),(my-Y)/(R*4)]:[0,0]});
- if(on&&!still) requestAnimationFrame(f)}
+ if(on&&!still&&!once) requestAnimationFrame(f)}
 if(still) requestAnimationFrame(f);
 })();
 
