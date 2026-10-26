@@ -1391,6 +1391,39 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
   #about .evo-intro{margin-bottom:24px}
 }
 .stack-inline{margin-top:56px}.stack-inline .head{margin-top:12px!important}
+
+.decision.pad{padding-top:clamp(40px,4.5vw,64px);padding-bottom:0}
+.dc{border:1px solid var(--line);background:var(--card);padding:clamp(22px,3vw,40px)}
+.dc-h h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.05;letter-spacing:-.01em;margin-top:16px}
+.dc-h h2 em{color:var(--ink-3)}
+.dc-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:28px;border-top:1px solid var(--line)}
+.dc-g>div{padding:20px 20px 4px 0}
+.dc-g>div+div{padding-left:20px;border-left:1px solid var(--line)}
+.dc-g small{display:block;font-family:var(--sans);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+.dc-g p{font-family:var(--sans);font-size:15px;line-height:1.55;color:var(--ink-2)}
+.dc-g p b{color:var(--ink);font-weight:500}
+.dc-g .on small{color:var(--accent)}
+.dc-l{display:inline-block;margin-top:24px;font-family:var(--sans);font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line-2);padding-bottom:2px;transition:border-color .25s}
+.dc-l:hover{border-color:var(--ink)}
+@media (max-width:860px){.dc-g{grid-template-columns:1fr 1fr}.dc-g>div:nth-child(3){padding-left:0;border-left:0}.dc-g>div:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:560px){.dc-g{grid-template-columns:1fr}.dc-g>div,.dc-g>div+div{padding-left:0;border-left:0}.dc-g>div+div{border-top:1px solid var(--line)}}
+
+@media (min-width:1100px){
+  .hero.pad{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.2fr);grid-template-rows:auto auto auto 1fr auto;column-gap:clamp(32px,4vw,64px);text-align:left;align-items:start;padding-top:clamp(40px,5vw,72px)}
+  .hero>.eyebrow,.hero>h1,.hero>.sub,.hero>.ctas{grid-column:1}
+  .hero>.eyebrow{grid-row:1;margin-bottom:18px}
+  .hero>h1{grid-row:2;font-size:clamp(42px,4.5vw,66px);white-space:nowrap}
+  .hero .stage .status{white-space:nowrap;max-width:calc(100% - 24px)}
+  .hero .sub .sub-lead{font-size:clamp(18px,1.5vw,20px)}
+  .hero .sub p:not(.sub-lead){font-size:16.5px}
+  .hero>.sub{grid-row:3;margin:20px 0 0}
+  .hero>.ctas{grid-row:4;justify-content:flex-start;align-self:start}
+  .hero>.stage{grid-column:2;grid-row:1 / span 4;margin:0;max-width:none;aspect-ratio:auto;min-height:480px;align-self:stretch}
+  .hero>.hud{grid-column:1 / -1;grid-row:5;margin-top:26px}
+  .hero .ch{padding:8px 22px 20px}
+  .hero .ch .glyph{height:clamp(80px,7vw,104px)}
+  .hero .ch .w{font-size:clamp(26px,2.4vw,34px)}
+}
 </style>
 
 <div class="frame">
@@ -1564,6 +1597,19 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
       <div><b>One decision point</b>A single tested function answers allow, hold or stop. No model decides anything.</div>
     </div>
 </div></div></div></div>
+  </div>
+</section>
+
+<section class="pad decision" id="decision" aria-label="A product decision">
+  <div class="dc">
+    <div class="dc-h"><span class="tag"><b></b><b></b><b></b><b></b>A product decision</span><h2 class="rv">Should Umbra's AI enforce policy, <em>or only draft it?</em></h2></div>
+    <div class="dc-g">
+      <div><small>01 · The trade-off</small><p>A model that decides allow or block on live traffic is flexible, but the same input can get a different answer. Rules alone are predictable, but miss how people actually write.</p></div>
+      <div class="on"><small>02 · What I chose</small><p><b>The AI drafts, fixed rules enforce, and a person approves every change.</b> The cost is a slower path from a written policy to a live rule.</p></div>
+      <div><small>03 · The evidence</small><p>On 51 test sentences, the drafts were right 43 times against 28 for rules alone, with 0 unsafe. Most misses dropped a condition, which over-blocks rather than leaks.</p></div>
+      <div><small>04 · What I would test next</small><p>Five analysts write ten policies each, with and without the drafts, checked against one answer key. If it is not faster, or the drafts need too much fixing, the feature does not earn its place.</p></div>
+    </div>
+    <a class="dc-l" href="https://murtuzabuilds.com/umbra/case-study.html#results" target="_blank" rel="noopener">Full reasoning in the Umbra case study ↗</a>
   </div>
 </section>
 
