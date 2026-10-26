@@ -1386,7 +1386,7 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
   <div class="head">
     <span class="tag"><b></b><b></b><b></b><b></b>Portfolio</span>
     <h2 class="rv">Selected Work.</h2>
-    <p class="work-lede">Products I have shaped, designed and built, from enterprise platforms to consumer apps, most of them AI-enabled. Each one starts with a user problem and ends with a working product. Open any of them for the thinking behind it.</p>
+    <p class="work-lede">Two flagship products, Umbra for AI governance and Outpost for agent oversight, then shorter studies including CardRight for consumer card decisions. Each covers the problem, the key product decisions and the evidence behind them.</p>
   </div>
 </section>
 
@@ -1425,7 +1425,7 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
       </div>
       <div class="um-pillars">
         <div><b>Demand map</b>Shows where teams need approved AI, based on what they already use.</div>
-        <div><b>Corona (AI assistant)</b>Drafts rules from plain English on gpt-oss-120b, an open-weight model served by Groq: 43 of 51 right in testing, against 28 for rules alone. Chosen for speed and because a regulated customer could host it themselves. A person approves every draft; fixed rules enforce it.</div>
+        <div><b>Corona (AI assistant)</b>Drafts rules from plain English on gpt-oss-120b, an open-weight model served by Groq: 43 of 51 right on a 51-sentence test set I wrote, against 28 for rules alone. A small test, not a production accuracy figure. Chosen for speed and because a regulated customer could host it themselves. A person approves every draft; fixed rules enforce it.</div>
         <div><b>Agent owners</b>Every agent gets a named owner, permissions and a money limit. Approved agents go to work in Outpost.</div>
       </div>
     </div>
@@ -1463,7 +1463,7 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
       <div><b>3×</b><span>more work shipped when someone answers the Gate at once than when nobody does (83 vs 28 tasks a shift)</span></div>
       <div><b>+23%</b><span>output from answering in 15 seconds instead of a minute, with the rules unchanged</span></div>
       <div><b>3× risk, +1%</b><span>doubling the money limits tripled the money moving with no person watching, and barely moved output</span></div>
-      <div><b>0 of 20,000</b><span>random actions got past a locked rule or a badge</span></div>
+      <div><b>0 of 20,000</b><span>random actions got past a locked rule or a bot's permitted tools, in the engine's tests</span></div>
     </div>
     <p class="op-sim">Every number here comes from a seeded simulation, so any run can be replayed and checked step by step.</p>
     <div class="op-pillars">
@@ -1480,7 +1480,7 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
 
 <section class="pad" id="portfolio">
   <div class="lab-head">
-    <div><h3 class="rv">Design and Prototype Lab <em>the interface layer of AI products.</em></h3><p>Voice AI, fintech intelligence, behavioral products and an AI brand system, each taken from research to a working prototype. Drag, scroll, or hover to preview.</p></div>
+    <div><h3 class="rv">Design and Prototype Lab <em>from research to a working prototype.</em></h3><p>Voice AI, fintech intelligence, behavioral products and an AI brand system, each taken from research to a working prototype. Drag, scroll, or hover to preview.</p></div>
     <div class="lab-ctrl"><span>DRAG</span><button type="button" id="labPrev" aria-label="Previous">&larr;</button><button type="button" id="labNext" aria-label="Next">&rarr;</button></div>
   </div>
   <div class="lab" id="lab"></div>
@@ -1551,19 +1551,19 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
       <rect class="tagbox" x="268" y="152" width="98" height="26"/>
       <text class="tagtx" x="317" y="170" text-anchor="middle">Murtuza</text>
       <g id="branches"></g>
-      <circle class="hubc" cx="485" cy="165" r="15"/><circle class="fillink" cx="485" cy="165" r="5"/><text class="hub-l" x="485" y="203" text-anchor="middle">Product judgment</text>
+      <circle class="hubc" cx="485" cy="165" r="15"/><circle class="fillink" cx="485" cy="165" r="5"/>
     </svg>
   </div><div class="stack-pop" id="stackPop" role="dialog" aria-live="polite" hidden></div></div>
   <div class="head" style="margin-top:28px">
     <h2 class="rv">The Working Stack.</h2>
-    <p>The messy inputs real work starts from, and the disciplines I bring to turn them into a product.</p>
+    <p>Tools and methods I use, grouped by discipline. Hover a branch for the full list.</p>
   </div>
 </section>
 
 <section class="pad" id="path">
   <div class="head">
     <h2 class="rv">The Path So Far.</h2>
-    <p>Five chapters, built like a stack: human-computer interaction as the foundation, product design as the interface layer, enterprise strategy as the systems layer, business school as the decision layer, and AI product work as the intelligence layer on top.</p>
+    <p>Where I have studied and worked, in order, and what I did at each.</p>
   </div>
   <div class="tiers">
     <div class="tier one">
@@ -1599,7 +1599,7 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
     <div class="tier one">
       <div class="conn"><b>Now</b></div>
       <div class="l"><span class="pill">Chapter 5</span><h3>Lighthouse AI</h3><p>Senior AI Product Manager Intern.</p>
-        <p class="line">Built the API pipeline for a verification product.</p>
+        <p class="line">Built the data and API pipeline behind a verification product, so its checks run against reliable, structured data.</p>
         <div class="tfoot"><span class="val">2026<small>to now</small></span></div></div>
     </div>
   </div>
@@ -1792,8 +1792,8 @@ const FLOW=[
  {l:'classify',tool:'fine-tuned classifier',L:2,r:-.55,d:[1,2]},
  {l:'reason',tool:'LLM reasoning · chain of tools',L:2,r:.55,d:[2,3]},
  {l:'approve?',tool:'human-in-the-loop checkpoint',L:3,r:0,d:[4,5],human:1},
- {l:'act',tool:'API call · writes to systems of record',L:4,r:0,d:[6],dur:2.6,sub:['act · updating 3 records in the CRM','act · notifying the account owner','act · 200 OK · receipts stored']},
- {l:'learn',tool:'eval + feedback · updates policy',L:5,r:0,d:[7],dur:2,sub:['learn · scoring the result against 40 test cases','learn · 38 of 40 passed · policy updated']}];
+ {l:'act',tool:'API call · writes to systems of record',L:4,r:0,d:[6],dur:1.8,sub:['act · updating 3 records in the CRM','act · notifying the account owner','act · 200 OK · receipts stored']},
+ {l:'learn',tool:'eval + feedback · updates policy',L:5,r:0,d:[7],dur:1.4,sub:['learn · scoring the result against 40 test cases','learn · 38 of 40 passed · policy updated']}];
 let phase='idle', phT=0, col=0, hx=0, hy=0, lastR='', lastStep='', waves=[], topK=[], sim=0, att=-1, lastQ={x:0,y:0};
 let flowDone=false, finT=0, doneT=0, lastSecs='0', manualRun=-1, run=0, runT=0, st=[], autoApprove=false, logLines=[], nodeXY=[], hoverNode=-1, jobs=0, lastLogKey='';
 const heroStage=$('heroStage'), steps=[...document.querySelectorAll('#chapters .stg')], layers=[...document.querySelectorAll('#chapters .ch')], logEl=$('runlog'), logBody=$('runlogBody'), logStat=$('runlogStat'), apBtn=$('approveBtn');
@@ -1819,7 +1819,7 @@ function tickFlow(now){ heroStage.classList.toggle('fin',flowDone); if(LOGBELOW.
     if(x.s==='wait'&&now-x.t0>9){ x.s='done'; x.end=now; autoApprove=true; apBtn.hidden=true; log('no response · escalated, then approved by policy','warn'); } });
   if(done===FLOW.length&&!flowDone&&!finT){ finT=now; log('verifying results · writing the audit trail'); }
   if(flowDone&&apBtn.hidden&&apBtn.dataset.mode==='again'&&now-doneT>2.8){ apBtn.hidden=false; }
-  if(done===FLOW.length&&!flowDone&&finT&&now-finT>1.2){ flowDone=true; doneT=now; const secs=(now-runT).toFixed(1); lastSecs=secs; log(`✓ task complete · ${FLOW.length} steps · ${secs}s · manual steps ${manualRun===run?1:0}`,'ok'); logStat.textContent=`run #${run} · ${secs}s · ${manualRun===run?'1 human approval':'fully automated'}`; apBtn.textContent='Run again'; apBtn.hidden=true; apBtn.dataset.mode='again'; }
+  if(done===FLOW.length&&!flowDone&&finT&&now-finT>.6){ flowDone=true; doneT=now; const secs=(now-runT).toFixed(1); lastSecs=secs; log(`✓ task complete · ${FLOW.length} steps · ${secs}s · manual steps ${manualRun===run?1:0}`,'ok'); logStat.textContent=`run #${run} · ${secs}s · ${manualRun===run?'1 human approval':'fully automated'}`; apBtn.textContent='Run again'; apBtn.hidden=true; apBtn.dataset.mode='again'; }
 }
 scene($('hero'),(c,w,h,t,s)=>{
   const now=performance.now()/1000, cy0=h*.47, R=Math.min(w*.26,h*.38), a=now-phT, V=w<560;
@@ -2281,7 +2281,7 @@ const PROJECTS=[
   role:'Product manager: idea, rules, engine, 3D interface and identity',when:'Concept to working app',tools:'JavaScript, three.js',repo:'https://github.com/murtuzabuilds/outpost',live:'https://murtuzabuilds.com/outpost/',code:'One tested function decides whether each action is allowed, held for a person or stopped. Around it: an authority table kept as plain data, a self-checking logbook that exports as JSON, a lab that replays 20 shifts under a draft, and a 3D base, a list and a rewind that all draw the same state. 104 tests.',
   blurb:'The control room for a person who runs a crew of agents. Each bot acts alone up to a limit it has earned, the risky calls wait for a person\'s yes, every decision is logged, and a rule change can be tested on replayed shifts before it goes live.',
   kpi:['Speed > slack','answering faster beats loosening the rules, in simulation'],
-  metrics:[['3×','more work shipped when someone answers the Gate at once than when nobody does','sim'],['+23% vs +1%','output from answering in 15 seconds instead of a minute, against doubling the money limits (which tripled unsupervised spend)','sim'],['0 of 20,000','random actions got past a locked rule or a badge','eval']],
+  metrics:[['3×','more work shipped when someone answers the Gate at once than when nobody does','sim'],['+23% vs +1%','output from answering in 15 seconds instead of a minute, against doubling the money limits (which tripled unsupervised spend)','sim'],['0 of 20,000','random actions got past a locked rule or a bot\'s permitted tools, in the engine\'s tests','eval']],
   calls:['<b>Trust model.</b> A reviewer pointed out that trust earned on any task says little about money → trust to move money is now earned on money tasks only, and no bot moves more than $1,000 alone at any level. The ceiling also closed a gap the case study used to disclose.','<b>Model choice: none in the decision.</b> Considered a model for the allow, hold or stop call → kept it as one plain function, because the same action must always get the same answer for the logbook to be auditable and the lab to be fair. Models belong inside the agents, whichever ones the customer runs.','<b>Product scope.</b> Umbra decides which agents get in, so Outpost was scoped as the operations layer for the agents that did. The two products never govern the same thing.','<b>Decision design.</b> Every allow, hold or stop comes from one tested function, with no model in the loop, so an outcome never depends on how a model reads the work. In testing, 0 of 20,000 random actions got past a locked rule.','<b>Simulation finding.</b> Doubling the money limits added 1% output and tripled unsupervised spend; answering the Gate faster added 23%. The product was built around getting the right person to a fast yes, not around looser limits.','<b>Mobile usability fix.</b> Embedded in a page, touch either trapped scrolling or did nothing. Changed it so one finger scrolls the page and two fingers move and zoom the base.'],
   snap:['The operations lead who answers for a crew of AI agents: approves the risky calls, sets each agent\'s limits and owns what the crew does.','Work shipped per shift, with no action ever getting past a locked rule.','Speed of the person\'s answer over looser rules. Raising limits barely moved output and tripled unsupervised spend, so the product is built around getting the right person to a fast yes.'],
   market:[['Why now','Gartner expects at least 15% of day-to-day work decisions to be made autonomously by agentic AI by 2028, up from none in 2024, and a third of enterprise software to include agents.','Gartner, June 2025','https://w.media/over-40-percent-of-agentic-ai-projects-could-face-the-axe-by-end-of-2027-gartner/'],['The risk','Gartner also expects more than 40% of agentic AI projects to be canceled by the end of 2027, citing rising costs, unclear business value and inadequate risk controls. Outpost is aimed at the last of these.','Gartner, June 2025','https://w.media/over-40-percent-of-agentic-ai-projects-could-face-the-axe-by-end-of-2027-gartner/'],['Who buys, and what they use today','The buyer is the head of operations who owns the outcomes, with risk and compliance as approvers. Today they get approval queues that ask about every action, or traces that show what happened afterwards. Neither sets limits of authority in advance.','My analysis',''],['Market size','Not sized yet. Agent operations is too new for a credible top-down number, so I would size it bottom-up from the agents each customer runs, the way Umbra prices agents.','My analysis','']],
@@ -2512,7 +2512,7 @@ const CARD={
   apply:['Job-matching engine','Ranks roles by ATS match, career track and city, then suggests resume tailoring.']};
 PROJECTS.forEach(p=>{ if(p.id==='regverify'&&!p.brandBg){ p.brandBg='#0A0E1F'; p.brandInk='#EAEEFF'; p.brand='#6F86FF'; } if(p.id==='winloss'&&!p.brandBg){ p.brandBg='#0C1714'; p.brandInk='#E6F5F0'; p.brand='#2FD9B4'; } if(p.id==='prdjira'&&!p.brandBg){ p.brandBg='#0E1320'; p.brandInk='#E8ECF7'; p.brand='#FFB21E'; } if(p.id==='apply'&&!p.brandBg){ p.brandBg='#0A1A16'; p.brandInk='#E6F5F0'; p.brand='#2FD9B4'; } });
 const COVER={zentra:'media/zentra/cover.webp',cardright:'media/cardright/cover.webp',outpost:'media/outpost/cover.webp'};
-const LAB_ORDER=['regverify','winloss','cardright','nova','conatus','prdjira','finpath','zentra','athlevo'];
+const LAB_ORDER=['regverify','winloss','cardright','prdjira','nova','conatus','finpath','zentra','athlevo'];
 const LAB_GROUPS=[['AI at the core','Products and tools where AI or automation does the core work, from anonymized professional work and my MBA capstone to products I built end to end.',6],['Built from research','Products that started with user research and ended as a working build.',3]];
 const CARD_TAG={regverify:'Anonymized',zentra:'Product case study',athlevo:'Product case study'}; const labItems=LAB_ORDER.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean);
 const labCard=p=>`<button type="button" class="labc" data-open="${p.id}" style="--brand-bg:${p.brandBg};--brand-ink:${p.brandInk}">
@@ -2806,7 +2806,7 @@ function decode(el){ if(reduce||el.children.length||el.dataset.dec) return; el.d
 const KB=[
   {k:'background experience career history summary years year overall long resume cv before prior previous previously past earlier',a:'A product manager with roots in design and digital transformation. He holds a master\'s in Human-Computer Interaction, started as a product designer at Tinder, spent nearly five years at Deloitte in product strategy and digital transformation, and is now an AI product manager at Lighthouse AI while doing his MBA at Wisconsin.',src:['The Path So Far','path']},
   {e:['deloitte'],k:'deloitte consulting consultant analyst senior product manager pm strategy',a:'At Deloitte he was a Senior Analyst, then Product Manager, in Product Strategy and Digital Transformation. He worked on digital product strategy and experience for enterprise clients, and helped shape AI workflows as a member of an internal AI advisory council.',src:['Path · Chapter 3','path']},
-  {k:'lighthouse current currently now today intern internship',a:'He is a Senior AI Product Manager Intern at Lighthouse AI, where he built the API pipeline for a verification product. Ask about Umbra, Outpost or CardRight to see how he builds AI products.',src:['Path · Chapter 5','path']},
+  {k:'lighthouse current currently now today intern internship',a:'He is a Senior AI Product Manager Intern at Lighthouse AI, where he built the data and API pipeline behind a verification product, so its checks run against reliable, structured data. Ask about Umbra, Outpost or CardRight to see how he builds AI products.',src:['Path · Chapter 5','path']},
   {e:['tinder','match'],k:'tinder design designer onboarding consumer dating',a:'At Tinder he started as a Product Design Intern and became a Product Designer, working on research, prototyping and the flows people use to join and start talking.',src:['Path · Chapter 2','path']},
   {e:['calcutta','xavier','xaviers','kolkata'],k:'hci human computer interaction master masters ms m.s. msc calcutta xavier xaviers kolkata degree undergraduate undergrad bachelor college',a:"He holds an M.S. in Human-Computer Interaction from St. Xavier's College, University of Calcutta, completed in 2020. It is where he learned to design around people, from research to tested prototypes, and where he wrote his thesis, The Creative Gene.",src:['Path · Chapter 1','path']},
   {e:['outpost'],k:'outpost agent agents agentic crew bots bot operations manage supervise supervision 3d base gate vault trust approval sign off human in the loop permissions autonomy authority limits logbook audit lab replay',a:'Outpost is the control room for a person who runs a crew of agents, and he designed and built it. Every action a bot wants to take goes through one tested function that allows it, holds it for a person or stops it. Limits are set per trust level, and trust grows with each task shipped. Every bot was approved in Umbra first, with an owner, permissions and a money limit. Every decision is written to a logbook that checks itself and exports, and the Autonomy lab replays 20 shifts to test a rule change before it is applied. His main finding: how fast the person answers matters far more than how loose the rules are. The bots are simulated and the company is fictional.',src:['Outpost','outpost'],link:['Outpost demo','https://murtuzabuilds.com/outpost/']},
@@ -2822,7 +2822,7 @@ const KB=[
   {e:['piggywise'],k:'piggywise budget budgeting money planner expenses',a:'Piggywise is a budget planner app he designed, focused on making spending and goals easy to see.',src:['Earlier work · Piggywise','work'],open:'piggywise'},
   {e:['jira','prd','n8n'],k:'n8n jira prd pipeline automation atlassian',a:'PRD-to-Jira turns a product requirements doc into Jira epics and stories, with an n8n workflow he built on the Atlassian API.',src:['Selected Work · PRD-to-Jira','work'],open:'prdjira'},
   {e:['apply'],k:'apply engine ats',a:'Apply Engine is a React app he built that ranks job roles by fit and suggests resume tailoring.',src:['Selected Work · Apply Engine','work'],open:'apply'},
-  {k:'projects project work portfolio builds build built side personal design lab ux ui figma prototype products product shipped ship launched made created examples case',a:'Selected Work opens with Outpost and Umbra. Then AI at the core: an anonymized AI Regulatory Verification case, AI Win/Loss Analytics for his MBA capstone, CardRight, Nova AI, Conatus and PRD-to-Jira. Then Built from research: Finpath, Zentra and Athlevo.',src:['Selected Work','work']},
+  {k:'projects project work portfolio builds build built side personal design lab ux ui figma prototype products product shipped ship launched made created examples case',a:'Selected Work opens with Outpost and Umbra. Then AI at the core: an anonymized AI Regulatory Verification case, AI Win/Loss Analytics for his MBA capstone, CardRight, PRD-to-Jira, Nova AI and Conatus. Then Built from research: Finpath, Zentra and Athlevo.',src:['Selected Work','work']},
   {k:'github code repo repositories open source build built programming developer engineer python javascript react',a:'His personal builds are open source at github.com/murtuzabuilds, nine repos with tests and live demos: Conatus (AI growth companion), Nova (voice assistant with memory and tool calling), PRD-to-Jira (PRD parser, Jira REST CLI and n8n workflow), Apply Engine (React job ranking and resume tailoring), handoff (human-in-the-loop LLM agent), pmkit (RICE, PRD linting, win/loss dashboards), and coded versions of his Athlevo, Zentra and Finpath case studies. Client work at Deloitte and Lighthouse AI is confidential and not on GitHub.',src:['Built in public','code'],link:['GitHub','https://github.com/murtuzabuilds']},
   {e:['wisconsin','wsb'],k:'mba education school study studying studied degree degrees wisconsin madison business wsb graduate graduation stem scholarship award concentration major university',a:'An MBA at the Wisconsin School of Business, UW-Madison, in Technology Strategy and Product Management (STEM), on the Trusted to Lead Full-Tuition Merit Award. Graduating May 2027. Before that, an M.S. in Human-Computer Interaction from St. Xavier\'s College, University of Calcutta, in 2020.',src:['Path · Chapters 1 and 4','path']},
   {k:'leadership leader lead led leading manage managed management team teams engineers activities extracurricular clubs club consulting association ta teaching grainger fellow',a:'At Wisconsin he\'s Project Manager for the Graduate Business Consulting Association, Engagement Associate in the Tech Product Club, Instructor TA at the Design Innovation Lab, Product Fabrication Fellow at the Grainger Engineering Lab, and a PPFB Instructor.',src:['Path · Chapter 4','path']},
