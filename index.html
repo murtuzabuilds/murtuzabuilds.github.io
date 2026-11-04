@@ -24,6 +24,11 @@
 @media (max-width:760px){.art{grid-template-columns:1fr}}
 </style>
 <title>Murtuza Builds</title>
+<style>/* no single word left alone on the last line */
+h1,h2,h3,h4{text-wrap:balance}
+p,li,dd,td,figcaption,blockquote,.lede{text-wrap:pretty}
+</style>
+
 <meta name="robots" content="noindex, nofollow, noarchive">
 <script>(function(){var t=null;try{t=localStorage.getItem('theme-v2');}catch(e){}document.documentElement.dataset.theme=(t==='light'||t==='dark')?t:'dark';})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1390,7 +1395,7 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
   #about .eras{margin-top:26px;padding-top:24px}
   #about .evo-intro{margin-bottom:24px}
 }
-.stack-inline{margin-top:56px}.stack-inline .head{margin-top:12px!important}
+.stack-inline{margin-top:56px}.stack-inline .head{margin:0 0 8px!important}
 
 .decision.pad{padding-top:clamp(40px,4.5vw,64px);padding-bottom:0}
 .dc{border:1px solid var(--line);background:var(--card);padding:clamp(22px,3vw,40px)}
@@ -1663,6 +1668,10 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
     <div class="chip"><i style="background:var(--c4)"></i>Figma, n8n, Jira</div>
   </div>
   <div class="stack-inline">
+  <div class="head">
+    <h2 class="rv">The Working Stack.</h2>
+    <p>Tools and methods I use, grouped by discipline. Hover or tap a branch for the full list.</p>
+  </div>
   <div class="stack-wrap" id="stackWrap"><div class="diagram">
     <svg viewBox="0 0 1000 330" role="img" aria-label="Chaotic inputs such as manual workflows, email threads, spreadsheets and ad hoc requests converge into Murtuza, who turns them into five disciplines: AI, product strategy, data, research and design, and automation">
       <g id="inputs"></g>
@@ -1673,10 +1682,6 @@ html.theme-anim,html.theme-anim *{transition:background-color .4s ease,color .4s
       <circle class="hubc" cx="485" cy="165" r="15"/><circle class="fillink" cx="485" cy="165" r="5"/>
     </svg>
   </div><div class="stack-pop" id="stackPop" role="dialog" aria-live="polite" hidden></div></div>
-  <div class="head" style="margin-top:28px">
-    <h2 class="rv">The Working Stack.</h2>
-    <p>Tools and methods I use, grouped by discipline. Hover a branch for the full list.</p>
-  </div>
   </div>
 </section>
 
@@ -4057,5 +4062,9 @@ marks();tick();addEventListener('scroll',tick,{passive:true});addEventListener('
   const h=document.getElementById('opHost'); if(h&&h.shadowRoot) window.__chromeFix(h);
 })();
 </script>
+<script>/* keep the last two words of a paragraph, cell or heading together, so no single word sits alone on the last line */
+(function(){var run=function(){document.querySelectorAll('p,li,dd,td,figcaption,blockquote,h2,h3').forEach(function(e){if(e.closest('svg,pre,code,[contenteditable]'))return;var w=document.createTreeWalker(e,NodeFilter.SHOW_TEXT),n,last=null;while(n=w.nextNode()){if(/\S/.test(n.textContent))last=n}
+if(!last||(e.textContent||'').trim().split(/\s+/).length<4)return;var t=last.textContent,m=t.match(/^([\s\S]*?)(\S+) (\S+\s*)$/);if(m&&(m[2]+m[3]).trim().length<=24)last.textContent=m[1]+m[2]+' '+m[3];});};
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();addEventListener('load',function(){run();setTimeout(run,1500);});})();</script>
 </body>
 </html>
